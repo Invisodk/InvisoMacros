@@ -1,0 +1,1774 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.0">
+  <Nodes>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="678" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>URL</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues>
+              <Item name="Authorization" value="Basic AcessToken" />
+            </NameValues>
+            <Fields orderChanged="False">
+              <Field name="RecordID" selected="False" />
+              <Field name="Address" selected="False" />
+              <Field name="Postal code" selected="False" />
+              <Field name="City" selected="False" />
+              <Field name="Concat_variables1" selected="False" />
+              <Field name="FullAddress" selected="False" />
+              <Field name="URL" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="RecordID" selected="False" />
+              <Field name="Address" selected="False" />
+              <Field name="Postal code" selected="False" />
+              <Field name="City" selected="False" />
+              <Field name="Concat_variables1" selected="False" />
+              <Field name="FullAddress" selected="False" />
+              <Field name="URL" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName>inviso</UserName>
+          <Password>46E1347BE2557F7A97275D41C4B2FC807A3485B5740B76490</Password>
+          <numConnections>32</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="474" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="URL" type="V_WString" size="3000" expression="&quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>URL="https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="114" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Addresses</Name>
+          <Abbrev>I</Abbrev>
+          <ShowFieldMap value="True" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="Address" />
+                <Field name="Postal code" />
+                <Field name="City" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>Nyelandsvej 43 1.tv 2000</c>
+                  <c>12345</c>
+                  <c>Frederiksberg</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Text Input (2)</Name>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+        <Position x="294" y="666" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JSON_Field>DownloadData</JSON_Field>
+          <IncludeInOutput value="False" />
+          <SingleField value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="930" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="URL" selected="False" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="498" y="666" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="JSON_Name3" type="V_WString" size="1073741823" expression="IF isNull([JSON_Name3]) THEN [JSON_Name2] ELSE [JSON_Name3] ENDIF" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>JSON_Name3=IF isNull([JSON_Name3]) THEN [JSON_Name2] ELSE [JS...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name1" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="Formula: IF isNull([JSON_Name3]) THEN [JSON_Name2] ELSE [JSON_Name3] ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="390" y="666" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>JSON_Name</Field>
+          <NumFields value="3" />
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>JSON_Name</RootName>
+          <Delimeters value="." />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name1" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="606" y="666" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="Address" />
+          </GroupFields>
+          <HeaderField field="JSON_Name3" />
+          <DataField field="JSON_ValueString" />
+          <Methods>
+            <Method method="Concat" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:acadr_bbrid:Concat:" type="V_WString" />
+            <Field name="acadr_loc_x" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.x:Concat:" type="V_WString" />
+            <Field name="acadr_loc_y" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.y:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:unadr_bbrid:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="582" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <StartValue>1</StartValue>
+          <FieldName>RecordID</FieldName>
+          <FieldType>Int32</FieldType>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="246" y="294" width="456" height="76" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Download data about the addresses</Text>
+          <Font name="Segoe UI" size="15.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="Silver" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="282" y="570" width="456" height="76" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Parse the downloaded data</Text>
+          <Font name="Segoe UI" size="15.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="Silver" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="834" y="294" width="456" height="76" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Select and output data</Text>
+          <Font name="Segoe UI" size="15.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="Silver" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1542" y="678" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>No Match</Name>
+          <Abbrev>F</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="978" y="666" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <SelectFields>
+            <SelectField field="Address" selected="True" />
+            <SelectField field="acadr_name" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+            <SelectField field="CentroidX" selected="True" rename="Longtitude" />
+            <SelectField field="CentroidY" selected="True" rename="Latitude" />
+            <SelectField field="acadr_bbrid" selected="False" />
+            <SelectField field="acadr_loc_x" selected="False" />
+            <SelectField field="acadr_loc_y" selected="False" />
+            <SelectField field="acadr_matchlvl" selected="True" />
+            <SelectField field="id" selected="True" />
+            <SelectField field="type" selected="True" />
+            <SelectField field="unadr_bbrid" selected="False" />
+            <SelectField field="unadr_matchlvl" selected="True" />
+            <SelectField field="unadr_matchlvl_detail" selected="True" />
+            <SelectField field="url" selected="True" />
+            <SelectField field="Centroid" selected="False" />
+            <SelectField field="acadr_key" selected="False" type="Int64" size="8" />
+            <SelectField field="unadr_key" selected="False" type="Int64" size="8" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.CreatePoints.CreatePoints">
+        <Position x="702" y="666" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields fieldX="acadr_loc_x" fieldY="acadr_loc_y" />
+          <Mode>Projected</Mode>
+          <Projection>EPSG:32632</Projection>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:acadr_bbrid:Concat:" type="V_WString" />
+            <Field name="acadr_loc_x" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.x:Concat:" type="V_WString" />
+            <Field name="acadr_loc_y" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.y:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:unadr_bbrid:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+            <Field name="Centroid" size="2147483647" source="CreatePoints: x=acadr_loc_x y=acadr_loc_y" type="SpatialObj" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxCreatePoints" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
+        <Position x="798" y="666" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SpatialObj field="Centroid" />
+          <SelectedItems>
+            <Item name="CentroidXY" />
+          </SelectedItems>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:acadr_bbrid:Concat:" type="V_WString" />
+            <Field name="acadr_loc_x" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.x:Concat:" type="V_WString" />
+            <Field name="acadr_loc_y" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.y:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:unadr_bbrid:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+            <Field name="Centroid" size="2147483647" source="CreatePoints: x=acadr_loc_x y=acadr_loc_y" type="SpatialObj" />
+            <Field name="CentroidX" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="CentroidY" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialInfo" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1266" y="474" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression><![CDATA[[unadr_matchlvl] = "m"
+// [acadr_matchlvl] = "e1" OR [acadr_matchlvl] = "e2"
+]]></Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>unadr_matchlvl</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>m</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[unadr_matchlvl] = "m"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1530" y="558" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Partial match</Name>
+          <Abbrev>P</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1530" y="462" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Match</Name>
+          <Abbrev>T</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1362" y="534" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression><![CDATA[[unadr_matchlvl] = "a"
+// [acadr_matchlvl] = "im" OR [acadr_matchlvl] = "ia" OR [acadr_matchlvl] = "ud"
+]]></Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>unadr_matchlvl</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>a</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[unadr_matchlvl] = "a"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1170" y="618" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression><![CDATA[[type] = "unadr"
+// [acadr_matchlvl] = "e1" OR [acadr_matchlvl] = "e2"
+]]></Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>type</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>unadr</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[type] = "unadr"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1266" y="630" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>acadr_matchlvl</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>m</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[acadr_matchlvl] = "m"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1362" y="642" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>acadr_matchlvl</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>a</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[acadr_matchlvl] = "a"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1434" y="462" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1458" y="558" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1470" y="678" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="378" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="FullAddress" type="V_WString" size="64" expression="[Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FullAddress=[Address] + ", "+ ToString([Postal code]) + " " +...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.ListBox">
+        <Position x="906" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="906" y="150" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="174" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="variables" type="V_WString" size="3000" expression="&quot;Variables&quot;" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>variables="Variables"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="1" source="TextInput:" type="Byte" />
+            <Field name="variables" size="3000" source="Formula: &quot;Variables&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="54" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="1" />
+          </Fields>
+          <Data>
+            <r>
+              <c>123</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="1" source="TextInput:" type="Byte" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="294" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>variables</Field>
+          <NumFields value="1" />
+          <Delimeters value="," />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="1" source="TextInput:" type="Byte" />
+            <Field description="TextToColumns: Parsed from variables" name="variables" size="3000" source="TextToColumns: Parsed from variables" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="402" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>variables</Field>
+          <NumFields value="2" />
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>variables</RootName>
+          <Delimeters value="=" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="1" source="TextInput:" type="Byte" />
+            <Field description="TextToColumns: Parsed from variables" name="variables" size="3000" source="TextToColumns: Parsed from variables" type="V_WString" />
+            <Field description="TextToColumns: Parsed from variables" name="variables1" size="3000" source="TextToColumns: Parsed from variables" type="V_WString" />
+            <Field description="TextToColumns: Parsed from variables" name="variables2" size="3000" source="TextToColumns: Parsed from variables" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="618" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="variables1" action="Concat" rename="Concat_variables1">
+              <Concat_Start />
+              <Separator>,</Separator>
+              <Concat_End />
+            </SummarizeField>
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="498" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>variables2</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>True</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[variables2] = "True"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="1" source="TextInput:" type="Byte" />
+            <Field description="TextToColumns: Parsed from variables" name="variables" size="3000" source="TextToColumns: Parsed from variables" type="V_WString" />
+            <Field description="TextToColumns: Parsed from variables" name="variables1" size="3000" source="TextToColumns: Parsed from variables" type="V_WString" />
+            <Field description="TextToColumns: Parsed from variables" name="variables2" size="3000" source="TextToColumns: Parsed from variables" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="1" source="TextInput:" type="Byte" />
+            <Field description="TextToColumns: Parsed from variables" name="variables" size="3000" source="TextToColumns: Parsed from variables" type="V_WString" />
+            <Field description="TextToColumns: Parsed from variables" name="variables1" size="3000" source="TextToColumns: Parsed from variables" type="V_WString" />
+            <Field description="TextToColumns: Parsed from variables" name="variables2" size="3000" source="TextToColumns: Parsed from variables" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="282" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="56">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="786" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>DownloadHeaders</Field>
+            <Operator>Contains</Operator>
+            <Operands>
+              <Operand>200</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([DownloadHeaders],"200")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="57">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Test.Test">
+        <Position x="930" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Tests>
+            <Test>
+              <Name>API success</Name>
+              <Connection>#1</Connection>
+              <Type>RecCountValue</Type>
+              <Value>&gt;0</Value>
+            </Test>
+          </Tests>
+          <DontReportSubsequent value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>API success</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTest" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="714" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="726" y="258" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+        <Position x="1074" y="678" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RenameMode>RightInputRows</RenameMode>
+          <Fields orderChanged="False">
+            <Field name="Address" />
+            <Field name="acadr_name" />
+            <Field name="Longtitude" />
+            <Field name="Latitude" />
+            <Field name="acadr_matchlvl" />
+            <Field name="id" />
+            <Field name="type" />
+            <Field name="unadr_matchlvl" />
+            <Field name="unadr_matchlvl_detail" />
+            <Field name="url" />
+            <Field name="*Unknown" />
+          </Fields>
+          <Expression />
+          <NamesFromRows>
+            <OnError>Ignore</OnError>
+            <InputMode>Mapped</InputMode>
+            <OldName>Value</OldName>
+            <NewName>Name</NewName>
+          </NamesFromRows>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Address" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+    </Node>
+    <Node ToolID="61">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="978" y="750" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">.\AssistingMacros\Variables.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Variables.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Name" size="32" source="TextInput:" type="V_String" />
+            <Field name="Value" size="31" source="TextInput:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="54" Connection="Targets" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="54" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="59" Connection="Action" />
+      <Destination ToolID="3" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="60" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="61" Connection="Output" />
+      <Destination ToolID="60" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="26" Connection="True" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="31" Connection="True" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="False" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="29" Connection="False" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="32" Connection="False" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="29" Connection="True" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="32" Connection="True" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="False" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="True" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="False" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="37" Connection="Question" />
+      <Destination ToolID="38" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="38" Connection="Action" />
+      <Destination ToolID="39" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="39" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="50" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="True" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="56" Connection="False" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="True" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="58" Connection="Question" />
+      <Destination ToolID="59" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Text Box (58)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>List Box (37)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (28)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (27)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (20)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (19)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Conzoom</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="59" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>AcessToken</ReplaceText>
+              <Destination>3/Headers/NameValues/Item/@value</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="38" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>Variables</ReplaceText>
+              <Destination>39/FormulaFields/FormulaField/@expression</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (18)</Name>
+          <ToolId value="18" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (19)</Description>
+              <Name>Macro Input (19)</Name>
+              <ToolId value="19" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (20)</Description>
+              <Name>Macro Output (20)</Name>
+              <ToolId value="20" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (20)</Description>
+              <Name>Macro Output (27)</Name>
+              <ToolId value="27" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (20)</Description>
+              <Name>Macro Output (28)</Name>
+              <ToolId value="28" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Input you conzoom token</Description>
+              <Name>Text Box (58)</Name>
+              <ToolId value="58" />
+              <Default />
+              <Password value="True" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>ListBox</Type>
+              <Description>List Box (37)</Description>
+              <Name>List Box (37)</Name>
+              <ToolId value="37" />
+              <Multiple value="True" />
+              <Multiple_Custom value="False" />
+              <Multiple_Default value="True" />
+              <Mode>DW2</Mode>
+              <DW2_Path>.\AssistingMacros\Variables.yxdb</DW2_Path>
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>iVBORw0KGgoAAAANSUhEUgAAAKsAAACrCAYAAAAZ6GwZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOvAAADrwBlbxySQAAR35JREFUeF7tnQecVEXyx2EJKooZE2YFw2HO6c5whjP9VRTPM6dT704BsyI5qaeYc7gTI+asGEDFgCBIlhxVBETgJErof39r5jc0zze7b3Znll2Y2k/te/NCh+pfV3dXV/er4YqUV1q6dGn6rEj5piJY80TLli1LnxWpUFQEax5JgOW4aNGiDP/2229FMOeBimDNE4VAhYrdgfxTEax5IoETsC5evNj17t3bdezY0d16662uQ4cO7v3333cLFy60Z4pUPiqCNc8EaAHlVVdd5erWrevWWmstV69ePXfuuee6efPmGZiLXYLyURGseSaASB+1efPmbu2113Ybbrih23jjjd0ll1ziFixYUARrBagI1jwTQKQb0LJlS9OqgHWjjTZyF154oZs/f34RrBWgIljzTCFYaf4F1osuuqioWStIRbDmiYAfvNT/X+S7AS2vudrVW7ue28CDdYONNnQXXXJxUbNWkIpgzROFYF342yID61qA1QO1CNb8UBGseaKkYMVaUARr+agI1jxRUrAWNWv5qQjWPFERrIWnIljzREWwFp6KYM0TFcFaeCqCNU+UFKzFAVb5qQjWPFFSsBY1a/mpCNYElARcAupS/yyTAtdcd62BdaMGG7v1NljfXXjxRW7u/Hl2X8CO4yJlpyJYy0mhSyDni5cscUuWLXVL/DlgbXF1S1d3zTXc+htuYIBFs87zmpX7PCfQLl66JCtgixp4RSqCNYbUVItDirsGCWjwosW/uZta3ezWrLeWa7DpJm7t+uu4Sy/7uwE6fC7KBuCYsIuUoiJYY0iAFC/xIBOF1/Fb/fHHH93IkSPdx716ubfeedu9+/577oUXe7jjTzwh0w1Aux5+5BHu+R4vpJ557z33+ZdfuJGjRrnxEye4+Ti4+LABawhYNLaWxER5daQiWGMIkIQMOCZNmuT69Onjnn32WdepUydzrj7nnHPccccd5w499FDXeKfGbsutt3I7NNrRBlRo1Q033sjOOQLcTTbb1G2z3bZuux22d7s2+YM76JCDDdRnn3uOu/wfV7gOnTq6x594wvXywJ86darFDUWBCq+OtNqDFUCgvVjYp9+48gGWnj17ujZt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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="19" Selected="True" />
+        <Tool ToolId="20" Selected="True" />
+        <Tool ToolId="27" Selected="True" />
+        <Tool ToolId="28" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

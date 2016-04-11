@@ -1,0 +1,1026 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.0">
+  <Nodes>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1242" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Pages</Name>
+          <Abbrev>P</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1242" y="462" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Iteration</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Iteration</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="930" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>Valid</Field>
+            <Operator>IsTrue</Operator>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Valid] = 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="URL" size="200" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
+            <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="Valid" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="URL" size="200" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
+            <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="Valid" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="642" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="URLToCall" type="V_WString" size="200" expression="IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>URLToCall=IF [Engine.IterationNumber] == 0
+THEN
+[URL]
+ELSE
+Re...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="200" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
+            <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="546" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="URL" selected="True" type="V_WString" size="200" />
+            <SelectField field="FirstPage" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="200" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="738" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>URLToCall</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="URL" selected="False" />
+              <Field name="URL2" selected="False" />
+              <Field name="Difference" selected="False" />
+              <Field name="PageNumber" selected="False" />
+              <Field name="URLToCall" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="URL" selected="False" />
+              <Field name="URL2" selected="False" />
+              <Field name="Difference" selected="False" />
+              <Field name="PageNumber" selected="False" />
+              <Field name="URLToCall" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="200" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
+            <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="834" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadHeaders</Field>
+          <RegExExpression value="HTTP\/1.1 200 OK.*" />
+          <CaseInsensitve value="True" />
+          <Method>Match</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>DownloadHeaders</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+          </ParseComplex>
+          <Match>
+            <Field>Valid</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Match:
+HTTP\/1.1 200 OK.*</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="200" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
+            <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="Valid" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1146" y="462" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="FirstPage" selected="False" />
+            <SelectField field="URLToCall" selected="False" />
+            <SelectField field="DownloadData" selected="False" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="Valid" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="200" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="90" y="54" width="252" height="84" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>The purpose of this flow is to run a iterative process until the Alteryx site return something else than HTTP/1.1 200 OK</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="102" y="234" width="372" height="72" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Generates the URL and downloads the data
+]]></Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="642" y="234" width="372" height="72" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Check whether the call returns a 200 OK or something else. If something else, that iteration stops.
+]]></Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="438" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="FirstPage" type="Int64" size="8" expression="IF ISNULL([FirstPage]) THEN 1 ELSE [FirstPage] ENDIF" />
+            <FormulaField field="PageNumber" type="V_WString" size="2000" expression="Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FirstPage=IF ISNULL([FirstPage]) THEN 1 ELSE [FirstPage] ENDIF
+PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field description="RegEx: Parsed from URL" name="FirstPage" source="Formula: IF ISNULL([FirstPage]) THEN 1 ELSE [FirstPage] ENDIF" type="Int64" />
+            <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.NumericUpDown.NumericUpDown">
+        <Position x="1014" y="66" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="1014" y="150" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1026" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression><![CDATA[[Engine.IterationNumber] < 9999
+]]></Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[[Engine.IterationNumber] < 9999
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="URL" size="200" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
+            <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="Valid" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="URL" size="200" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
+            <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="Valid" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings>
+        <Position x="162" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Numeric Up Down (12)">2</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output8">
+          <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="WaitASecond.yxmc" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.NumericUpDown.NumericUpDown">
+        <Position x="618" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="618" y="150" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1242" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Last output</Name>
+          <Abbrev>L</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1170" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="200" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
+            <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="Valid" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Input</Name>
+          <Abbrev>I</Abbrev>
+          <ShowFieldMap value="True" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="URL" />
+                <Field name="URL2" />
+                <Field name="Difference" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>www</c>
+                  <c>www</c>
+                  <c>www</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Text Input (28)</Name>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1134" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="URL" selected="False" />
+            <SelectField field="URL2" selected="False" />
+            <SelectField field="Difference" selected="False" />
+            <SelectField field="PageNumber" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="Valid" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="342" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>URL</Field>
+          <RegExExpression value="(\d+)" />
+          <CaseInsensitve value="True" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>URL</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="FirstPage" type="Int64" size="8" />
+          </ParseComplex>
+          <Match>
+            <Field>URL_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Parse:
+(\d+)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field description="RegEx: Parsed from URL" name="FirstPage" source="RegEx: Parsed from URL" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.NumericUpDown.NumericUpDown">
+        <Position x="450" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="450" y="150" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="258" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Field1" selected="True" rename="URL" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="URL" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="3" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="6" Connection="True" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="21" Connection="Action" />
+      <Destination ToolID="22" Connection="Action" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="6" Connection="False" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="22" Connection="False" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="20" Connection="Question" />
+      <Destination ToolID="21" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="True" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="True" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="24" Connection="Question" />
+      <Destination ToolID="25" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="25" Connection="Action" />
+      <Destination ToolID="23" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="23" Connection="Input7" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="37" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="39" Connection="Action" />
+      <Destination ToolID="19" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="38" Connection="Question" />
+      <Destination ToolID="39" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (3)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (5)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Numeric Up Down (20)</Name>
+        <Value />
+        <IsNumeric value="True" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Numeric Up Down (24)</Name>
+        <Value />
+        <IsNumeric value="True" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (26)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (32)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Numeric Up Down (38)</Name>
+        <Value />
+        <IsNumeric value="True" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>WWW</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="21" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText><![CDATA[9999
+]]></ReplaceText>
+              <Destination>22/Expression</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="25" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>23/Value</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="39" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>999</ReplaceText>
+              <Destination>19/FormulaFields/FormulaField[@field='PageNumber']/@expression</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (2)</Name>
+          <ToolId value="2" />
+          <Questions>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (3)</Description>
+              <Name>Macro Output (3)</Name>
+              <ToolId value="3" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (5)</Description>
+              <Name>Macro Output (5)</Name>
+              <ToolId value="5" />
+            </Question>
+            <Question>
+              <Type>NumericUpDown</Type>
+              <Description>Max Iterations</Description>
+              <Name>Numeric Up Down (20)</Name>
+              <ToolId value="20" />
+              <Minimum value="0" />
+              <Maximum value="10000" />
+              <Increment value="1" />
+              <Default value="50" />
+              <Decimals value="0" />
+            </Question>
+            <Question>
+              <Type>NumericUpDown</Type>
+              <Description>Enter the number of seconds between each request</Description>
+              <Name>Numeric Up Down (24)</Name>
+              <ToolId value="24" />
+              <Minimum value="0" />
+              <Maximum value="1000" />
+              <Increment value="1" />
+              <Default value="50" />
+              <Decimals value="0" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (26)</Description>
+              <Name>Macro Output (26)</Name>
+              <ToolId value="26" />
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (32)</Description>
+              <Name>Macro Input (32)</Name>
+              <ToolId value="32" />
+            </Question>
+            <Question>
+              <Type>NumericUpDown</Type>
+              <Description>Enter page increment value</Description>
+              <Name>Numeric Up Down (38)</Name>
+              <ToolId value="38" />
+              <Minimum value="0" />
+              <Maximum value="1000" />
+              <Increment value="1" />
+              <Default value="1" />
+              <Decimals value="0" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <IterativeMacro>
+        <Input>Input</Input>
+        <Output>Iteration</Output>
+        <IterationLimit value="10000" />
+        <LimitBehavior>Ignore</LimitBehavior>
+        <OutputMode>AllSame</OutputMode>
+      </IterativeMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="3" Selected="True" />
+        <Tool ToolId="5" Selected="True" />
+        <Tool ToolId="23" Selected="True" />
+        <Tool ToolId="26" Selected="True" />
+        <Tool ToolId="32" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
