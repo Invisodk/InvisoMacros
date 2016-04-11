@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-        <Position x="678" y="390" />
+        <Position x="678" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -12,10 +12,9 @@
           <CodePage>65001</CodePage>
           <EncodeURLs value="True" />
           <Headers>
-            <NameValues>
-              <Item name="Authorization" value="Basic AcessToken" />
-            </NameValues>
+            <NameValues />
             <Fields orderChanged="False">
+              <Field name="Authorization" />
               <Field name="RecordID" selected="False" />
               <Field name="Address" selected="False" />
               <Field name="Postal code" selected="False" />
@@ -35,14 +34,15 @@
               <Field name="Address" selected="False" />
               <Field name="Postal code" selected="False" />
               <Field name="City" selected="False" />
+              <Field name="Authorization" selected="False" />
               <Field name="Concat_variables1" selected="False" />
               <Field name="FullAddress" selected="False" />
               <Field name="URL" selected="False" />
               <Field name="*Unknown" selected="False" />
             </ComposeFields>
           </Payload>
-          <UserName>inviso</UserName>
-          <Password>46E1347BE2557F7A97275D41C4B2FC807A3485B5740B76490</Password>
+          <UserName />
+          <Password />
           <numConnections>32</numConnections>
           <Timeout>600</Timeout>
         </Configuration>
@@ -57,6 +57,7 @@
             <Field name="Address" size="24" source="TextInput:" type="String" />
             <Field name="Postal code" source="TextInput:" type="Int16" />
             <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
             <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
             <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
             <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
@@ -69,7 +70,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="474" y="390" />
+        <Position x="474" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -87,6 +88,7 @@
             <Field name="Address" size="24" source="TextInput:" type="String" />
             <Field name="Postal code" source="TextInput:" type="Int16" />
             <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
             <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
             <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
             <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
@@ -97,7 +99,7 @@
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="114" y="390" />
+        <Position x="114" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -140,7 +142,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
-        <Position x="294" y="666" />
+        <Position x="294" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -159,6 +161,7 @@
             <Field name="Address" size="24" source="TextInput:" type="String" />
             <Field name="Postal code" source="TextInput:" type="Int16" />
             <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
             <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
             <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
             <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
@@ -170,7 +173,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="930" y="378" />
+        <Position x="930" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -192,6 +195,7 @@
             <Field name="Address" size="24" source="TextInput:" type="String" />
             <Field name="Postal code" source="TextInput:" type="Int16" />
             <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
             <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
             <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -202,7 +206,7 @@
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="498" y="666" />
+        <Position x="498" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -221,6 +225,7 @@
             <Field name="Address" size="24" source="TextInput:" type="String" />
             <Field name="Postal code" source="TextInput:" type="Int16" />
             <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
             <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
             <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
             <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
@@ -235,7 +240,7 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="390" y="666" />
+        <Position x="390" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -257,6 +262,7 @@
             <Field name="Address" size="24" source="TextInput:" type="String" />
             <Field name="Postal code" source="TextInput:" type="Int16" />
             <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
             <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
             <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
             <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
@@ -271,7 +277,7 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-        <Position x="606" y="666" />
+        <Position x="606" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -294,17 +300,6 @@
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
-            <Field name="acadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:acadr_bbrid:Concat:" type="V_WString" />
-            <Field name="acadr_loc_x" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.x:Concat:" type="V_WString" />
-            <Field name="acadr_loc_y" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.y:Concat:" type="V_WString" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
-            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
-            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:unadr_bbrid:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
-            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo>
             <Field field="Address" order="Asc" />
@@ -315,7 +310,7 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="582" y="390" />
+        <Position x="582" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -335,6 +330,7 @@
             <Field name="Address" size="24" source="TextInput:" type="String" />
             <Field name="Postal code" source="TextInput:" type="Int16" />
             <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
             <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
             <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
             <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
@@ -348,7 +344,7 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="246" y="294" width="456" height="76" />
+        <Position x="246" y="306" width="456" height="76" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -368,7 +364,7 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="282" y="570" width="456" height="76" />
+        <Position x="282" y="582" width="456" height="76" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -388,7 +384,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="834" y="294" width="456" height="76" />
+        <Position x="834" y="306" width="456" height="76" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -421,7 +417,7 @@
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1542" y="678" />
+        <Position x="1542" y="690" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -438,7 +434,7 @@
     </Node>
     <Node ToolID="23">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="978" y="666" />
+        <Position x="978" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -491,7 +487,7 @@
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.CreatePoints.CreatePoints">
-        <Position x="702" y="666" />
+        <Position x="702" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -529,7 +525,7 @@
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
-        <Position x="798" y="666" />
+        <Position x="798" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -570,7 +566,7 @@
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1266" y="474" />
+        <Position x="1266" y="486" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -630,7 +626,7 @@
     </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1530" y="558" />
+        <Position x="1530" y="570" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -647,7 +643,7 @@
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1530" y="462" />
+        <Position x="1530" y="474" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -664,7 +660,7 @@
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1362" y="534" />
+        <Position x="1362" y="546" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -724,7 +720,7 @@
     </Node>
     <Node ToolID="30">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1170" y="618" />
+        <Position x="1170" y="630" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -784,7 +780,7 @@
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1266" y="630" />
+        <Position x="1266" y="642" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -841,7 +837,7 @@
     </Node>
     <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1362" y="642" />
+        <Position x="1362" y="654" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -898,7 +894,7 @@
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="1434" y="462" />
+        <Position x="1434" y="474" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -931,7 +927,7 @@
     </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="1458" y="558" />
+        <Position x="1458" y="570" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -964,7 +960,7 @@
     </Node>
     <Node ToolID="35">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="1470" y="678" />
+        <Position x="1470" y="690" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -997,7 +993,7 @@
     </Node>
     <Node ToolID="36">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="378" y="390" />
+        <Position x="378" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1015,6 +1011,7 @@
             <Field name="Address" size="24" source="TextInput:" type="String" />
             <Field name="Postal code" source="TextInput:" type="Int16" />
             <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
             <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
             <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
           </RecordInfo>
@@ -1024,7 +1021,7 @@
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.ListBox">
-        <Position x="906" y="54" width="59" height="59" />
+        <Position x="906" y="66" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1037,7 +1034,7 @@
     </Node>
     <Node ToolID="38">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="906" y="150" width="59" height="59" />
+        <Position x="906" y="162" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1050,7 +1047,7 @@
     </Node>
     <Node ToolID="39">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="174" y="186" />
+        <Position x="174" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1074,7 +1071,7 @@
     </Node>
     <Node ToolID="47">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="54" y="186" />
+        <Position x="54" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1103,7 +1100,7 @@
     </Node>
     <Node ToolID="49">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="294" y="186" />
+        <Position x="294" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1128,7 +1125,7 @@
     </Node>
     <Node ToolID="50">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="402" y="186" />
+        <Position x="402" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1157,7 +1154,7 @@
     </Node>
     <Node ToolID="52">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="618" y="174" />
+        <Position x="618" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1184,7 +1181,7 @@
     </Node>
     <Node ToolID="53">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="498" y="186" />
+        <Position x="498" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1223,7 +1220,7 @@
     </Node>
     <Node ToolID="54">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-        <Position x="282" y="402" />
+        <Position x="282" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1247,6 +1244,7 @@
             <Field name="Address" size="24" source="TextInput:" type="String" />
             <Field name="Postal code" source="TextInput:" type="Int16" />
             <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
             <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
@@ -1255,7 +1253,7 @@
     </Node>
     <Node ToolID="56">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="786" y="390" />
+        <Position x="786" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1279,6 +1277,7 @@
             <Field name="Address" size="24" source="TextInput:" type="String" />
             <Field name="Postal code" source="TextInput:" type="Int16" />
             <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
             <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
             <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
             <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
@@ -1292,6 +1291,7 @@
             <Field name="Address" size="24" source="TextInput:" type="String" />
             <Field name="Postal code" source="TextInput:" type="Int16" />
             <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
             <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
             <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
             <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
@@ -1304,7 +1304,7 @@
     </Node>
     <Node ToolID="57">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Test.Test">
-        <Position x="930" y="438" />
+        <Position x="930" y="450" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1328,7 +1328,7 @@
     </Node>
     <Node ToolID="58">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="714" y="54" width="59" height="59" />
+        <Position x="1326" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1341,7 +1341,7 @@
     </Node>
     <Node ToolID="59">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="726" y="258" width="59" height="59" />
+        <Position x="1326" y="198" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1354,7 +1354,7 @@
     </Node>
     <Node ToolID="60">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
-        <Position x="1074" y="678" />
+        <Position x="1074" y="690" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1407,7 +1407,7 @@
     </Node>
     <Node ToolID="61">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="978" y="750" />
+        <Position x="978" y="762" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1429,6 +1429,175 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
     </Node>
+    <Node ToolID="62">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="1194" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="63">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="1194" y="186" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="65">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="342" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="username" />
+            <Field name="password" />
+          </Fields>
+          <Data>
+            <r>
+              <c>brugernavn</c>
+              <c>kodeord</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="username" size="10" source="TextInput:" type="String" />
+            <Field name="password" size="7" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="66">
+      <GuiSettings>
+        <Position x="534" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Input.Macro Input"><![CDATA[Text=base64String
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="base64String" size="2000" source="Formula: [username] + &quot;:&quot; + [password]" type="V_WString" />
+            <Field name="username" size="10" source="TextInput:" type="String" />
+            <Field name="password" size="7" source="TextInput:" type="String" />
+            <Field name="Base64_encoded" size="2147483647" source="Formula: [Base64_encoded] + [pad]" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="Base64_Encoder.yxmc" />
+    </Node>
+    <Node ToolID="67">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="438" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="base64String" type="V_WString" size="2000" expression="[username] + &quot;:&quot; + [password]" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>base64String=[username] + ":" + [password]</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="username" size="10" source="TextInput:" type="String" />
+            <Field name="password" size="7" source="TextInput:" type="String" />
+            <Field name="base64String" size="2000" source="Formula: [username] + &quot;:&quot; + [password]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="618" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Authorization" type="V_WString" size="2000" expression="&quot;Basic &quot; + [Base64_encoded]" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Authorization="Basic " + [Base64_encoded]</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="base64String" size="2000" source="Formula: [username] + &quot;:&quot; + [password]" type="V_WString" />
+            <Field name="username" size="10" source="TextInput:" type="String" />
+            <Field name="password" size="7" source="TextInput:" type="String" />
+            <Field name="Base64_encoded" size="2147483647" source="Formula: [Base64_encoded] + [pad]" type="V_String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="69">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="198" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Target_base64String" selected="False" />
+                <SelectField field="Target_username" selected="False" />
+                <SelectField field="Target_password" selected="False" />
+                <SelectField field="Target_Base64_encoded" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -1443,8 +1612,8 @@
       <Origin ToolID="19" Connection="Output" />
       <Destination ToolID="54" Connection="Targets" />
     </Connection>
-    <Connection Wireless="True">
-      <Origin ToolID="52" Connection="Output" />
+    <Connection>
+      <Origin ToolID="69" Connection="Output" />
       <Destination ToolID="54" Connection="Source" />
     </Connection>
     <Connection>
@@ -1470,10 +1639,6 @@
     <Connection>
       <Origin ToolID="14" Connection="Output" />
       <Destination ToolID="3" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="59" Connection="Action" />
-      <Destination ToolID="3" Connection="Action" />
     </Connection>
     <Connection>
       <Origin ToolID="23" Connection="Output" />
@@ -1571,6 +1736,14 @@
       <Origin ToolID="50" Connection="Output" />
       <Destination ToolID="53" Connection="Input" />
     </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="69" Connection="Source" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="68" Connection="Output" />
+      <Destination ToolID="69" Connection="Targets" />
+    </Connection>
     <Connection>
       <Origin ToolID="53" Connection="True" />
       <Destination ToolID="52" Connection="Input" />
@@ -1591,9 +1764,33 @@
       <Origin ToolID="58" Connection="Question" />
       <Destination ToolID="59" Connection="Question" />
     </Connection>
+    <Connection name="#2">
+      <Origin ToolID="59" Connection="Action" />
+      <Destination ToolID="65" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="63" Connection="Action" />
+      <Destination ToolID="65" Connection="Action" />
+    </Connection>
     <Connection>
       <Origin ToolID="60" Connection="Output" />
       <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="62" Connection="Question" />
+      <Destination ToolID="63" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="65" Connection="Output" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="66" Connection="Output" />
+      <Destination ToolID="68" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="Output" />
+      <Destination ToolID="66" Connection="Macro Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -1649,6 +1846,12 @@
         <Value />
         <IsNumeric value="False" />
       </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Text Box (62)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
     </Constants>
     <MetaInfo>
       <NameIsFileName value="True" />
@@ -1680,8 +1883,8 @@
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
-              <ReplaceText>AcessToken</ReplaceText>
-              <Destination>3/Headers/NameValues/Item/@value</Destination>
+              <ReplaceText>kodeord</ReplaceText>
+              <Destination>65/Data/r/c[2]</Destination>
             </Action>
             <Action>
               <Type>UpdateValue</Type>
@@ -1693,6 +1896,16 @@
               <ReplaceText>Variables</ReplaceText>
               <Destination>39/FormulaFields/FormulaField/@expression</Destination>
             </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="63" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>brugernavn</ReplaceText>
+              <Destination>65/Data/r/c[1]</Destination>
+            </Action>
           </True>
         </NoCondition>
       </Actions>
@@ -1703,6 +1916,26 @@
           <Name>Tab (18)</Name>
           <ToolId value="18" />
           <Questions>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Input your Conzoom username</Description>
+              <Name>Text Box (62)</Name>
+              <ToolId value="62" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Input your password</Description>
+              <Name>Text Box (58)</Name>
+              <ToolId value="58" />
+              <Default />
+              <Password value="True" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
             <Question>
               <Type>MacroInput</Type>
               <Description>Macro Input (19)</Description>
@@ -1728,18 +1961,8 @@
               <ToolId value="28" />
             </Question>
             <Question>
-              <Type>TextBox</Type>
-              <Description>Input you conzoom token</Description>
-              <Name>Text Box (58)</Name>
-              <ToolId value="58" />
-              <Default />
-              <Password value="True" />
-              <Multiline value="False" />
-              <Hidden value="False" />
-            </Question>
-            <Question>
               <Type>ListBox</Type>
-              <Description>List Box (37)</Description>
+              <Description>Please choose the variables you would like to export</Description>
               <Name>List Box (37)</Name>
               <ToolId value="37" />
               <Multiple value="True" />
@@ -1765,6 +1988,7 @@
         <Tool ToolId="20" Selected="True" />
         <Tool ToolId="27" Selected="True" />
         <Tool ToolId="28" Selected="True" />
+        <Tool ToolId="66" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
