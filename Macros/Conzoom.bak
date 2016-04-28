@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-        <Position x="678" y="390" />
+        <Position x="678" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -70,7 +70,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="474" y="390" />
+        <Position x="474" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -99,7 +99,7 @@
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="114" y="390" />
+        <Position x="114" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -142,7 +142,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
-        <Position x="294" y="666" />
+        <Position x="294" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -173,7 +173,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="930" y="378" />
+        <Position x="930" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -206,7 +206,7 @@
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="498" y="666" />
+        <Position x="498" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -240,7 +240,7 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="390" y="666" />
+        <Position x="390" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -277,12 +277,12 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-        <Position x="606" y="666" />
+        <Position x="606" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <GroupFields>
-            <Field field="Address" />
+            <Field field="FullAddress" />
           </GroupFields>
           <HeaderField field="JSON_Name3" />
           <DataField field="JSON_ValueString" />
@@ -299,10 +299,21 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="acadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:acadr_bbrid:Concat:" type="V_WString" />
+            <Field name="acadr_loc_x" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.x:Concat:" type="V_WString" />
+            <Field name="acadr_loc_y" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.y:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="unadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:unadr_bbrid:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo>
-            <Field field="Address" order="Asc" />
+            <Field field="FullAddress" order="Asc" />
           </SortInfo>
         </MetaInfo>
       </Properties>
@@ -310,7 +321,7 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="582" y="390" />
+        <Position x="582" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -344,7 +355,7 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="246" y="294" width="456" height="76" />
+        <Position x="246" y="306" width="456" height="76" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -364,7 +375,7 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="282" y="570" width="456" height="76" />
+        <Position x="282" y="582" width="456" height="76" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -384,7 +395,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="834" y="294" width="456" height="76" />
+        <Position x="834" y="306" width="456" height="76" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -417,7 +428,7 @@
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1542" y="678" />
+        <Position x="1542" y="690" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -434,13 +445,14 @@
     </Node>
     <Node ToolID="23">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="978" y="666" />
+        <Position x="978" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OrderChanged value="True" />
           <SelectFields>
-            <SelectField field="Address" selected="True" />
+            <SelectField field="Address" selected="False" />
+            <SelectField field="FullAddress" selected="True" />
             <SelectField field="acadr_name" selected="True" />
             <SelectField field="*Unknown" selected="True" />
             <SelectField field="CentroidX" selected="True" rename="Longtitude" />
@@ -467,27 +479,24 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.CreatePoints.CreatePoints">
-        <Position x="702" y="666" />
+        <Position x="798" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -502,30 +511,27 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:acadr_bbrid:Concat:" type="V_WString" />
-            <Field name="acadr_loc_x" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.x:Concat:" type="V_WString" />
-            <Field name="acadr_loc_y" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.y:Concat:" type="V_WString" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_loc_x" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="acadr_loc_y" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:unadr_bbrid:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
             <Field name="Centroid" size="2147483647" source="CreatePoints: x=acadr_loc_x y=acadr_loc_y" type="SpatialObj" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxCreatePoints" />
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
-        <Position x="798" y="666" />
+        <Position x="882" y="678" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -541,32 +547,29 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:acadr_bbrid:Concat:" type="V_WString" />
-            <Field name="acadr_loc_x" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.x:Concat:" type="V_WString" />
-            <Field name="acadr_loc_y" size="2048" source="CrossTab:Header:JSON_Name3:acadr_loc.y:Concat:" type="V_WString" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_loc_x" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="acadr_loc_y" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:unadr_bbrid:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
             <Field name="Centroid" size="2147483647" source="CreatePoints: x=acadr_loc_x y=acadr_loc_y" type="SpatialObj" />
             <Field name="CentroidX" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="CentroidY" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialInfo" />
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1266" y="474" />
+        <Position x="1266" y="486" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -589,44 +592,38 @@
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1530" y="558" />
+        <Position x="1530" y="570" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -643,7 +640,7 @@
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1530" y="462" />
+        <Position x="1530" y="474" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -660,7 +657,7 @@
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1362" y="534" />
+        <Position x="1362" y="546" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -683,44 +680,38 @@
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
     <Node ToolID="30">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1170" y="618" />
+        <Position x="1170" y="630" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -743,44 +734,38 @@
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1266" y="630" />
+        <Position x="1266" y="642" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -800,44 +785,38 @@
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
     <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1362" y="642" />
+        <Position x="1362" y="654" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -857,44 +836,38 @@
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="1434" y="462" />
+        <Position x="1434" y="474" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -910,14 +883,14 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
@@ -927,7 +900,7 @@
     </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="1458" y="558" />
+        <Position x="1458" y="570" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -943,14 +916,14 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
@@ -960,7 +933,7 @@
     </Node>
     <Node ToolID="35">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="1470" y="678" />
+        <Position x="1470" y="690" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -976,14 +949,14 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
@@ -993,7 +966,7 @@
     </Node>
     <Node ToolID="36">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="378" y="390" />
+        <Position x="378" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1021,7 +994,7 @@
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.ListBox">
-        <Position x="906" y="54" width="59" height="59" />
+        <Position x="906" y="66" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1030,14 +1003,11 @@
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
     </Node>
     <Node ToolID="38">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="906" y="150" width="59" height="59" />
+        <Position x="906" y="162" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1050,7 +1020,7 @@
     </Node>
     <Node ToolID="39">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="174" y="186" />
+        <Position x="174" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1074,7 +1044,7 @@
     </Node>
     <Node ToolID="47">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="54" y="186" />
+        <Position x="54" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1103,7 +1073,7 @@
     </Node>
     <Node ToolID="49">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="294" y="186" />
+        <Position x="294" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1128,7 +1098,7 @@
     </Node>
     <Node ToolID="50">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="402" y="186" />
+        <Position x="402" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1157,7 +1127,7 @@
     </Node>
     <Node ToolID="52">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="618" y="174" />
+        <Position x="618" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1184,7 +1154,7 @@
     </Node>
     <Node ToolID="53">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="498" y="186" />
+        <Position x="498" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1223,7 +1193,7 @@
     </Node>
     <Node ToolID="54">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-        <Position x="282" y="402" />
+        <Position x="282" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1256,7 +1226,7 @@
     </Node>
     <Node ToolID="56">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="786" y="390" />
+        <Position x="786" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1305,33 +1275,9 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
-    <Node ToolID="57">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Test.Test">
-        <Position x="930" y="438" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Tests>
-            <Test>
-              <Name>API success</Name>
-              <Connection>#1</Connection>
-              <Type>RecCountValue</Type>
-              <Value>&gt;0</Value>
-            </Test>
-          </Tests>
-          <DontReportSubsequent value="True" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>API success</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTest" />
-    </Node>
     <Node ToolID="58">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="1326" y="42" width="59" height="59" />
+        <Position x="1326" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1344,7 +1290,7 @@
     </Node>
     <Node ToolID="59">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="1326" y="186" width="59" height="59" />
+        <Position x="1326" y="198" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1357,7 +1303,7 @@
     </Node>
     <Node ToolID="60">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
-        <Position x="1074" y="678" />
+        <Position x="1074" y="690" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1390,27 +1336,24 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Address" size="24" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
             <Field name="Longtitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
             <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Centroid" type="Double" />
-            <Field name="acadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:acadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
-            <Field name="type" size="2048" source="CrossTab:Header:JSON_Name3:type:Concat:" type="V_WString" />
-            <Field name="unadr_matchlvl" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
             <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Address" order="Asc" />
-          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
     </Node>
     <Node ToolID="61">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="978" y="750" />
+        <Position x="978" y="762" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1434,7 +1377,7 @@
     </Node>
     <Node ToolID="62">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="1194" y="42" width="59" height="59" />
+        <Position x="1194" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1447,7 +1390,7 @@
     </Node>
     <Node ToolID="63">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="1194" y="174" width="59" height="59" />
+        <Position x="1194" y="186" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1460,7 +1403,7 @@
     </Node>
     <Node ToolID="65">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="342" y="90" />
+        <Position x="342" y="102" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1492,7 +1435,7 @@
     </Node>
     <Node ToolID="66">
       <GuiSettings>
-        <Position x="534" y="90" />
+        <Position x="534" y="102" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1504,14 +1447,11 @@
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="base64String" size="2000" source="Formula: [username] + &quot;:&quot; + [password]" type="V_WString" />
-            <Field name="username" size="10" source="TextInput:" type="String" />
-            <Field name="password" size="7" source="TextInput:" type="String" />
+            <Field name="username" size="6" source="TextInput:" type="String" />
+            <Field name="password" size="14" source="TextInput:" type="String" />
             <Field name="Base64_encoded" size="2147483647" source="Formula: [Base64_encoded] + [pad]" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -1520,7 +1460,7 @@
     </Node>
     <Node ToolID="67">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="438" y="90" />
+        <Position x="438" y="102" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1545,7 +1485,7 @@
     </Node>
     <Node ToolID="68">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="618" y="90" />
+        <Position x="618" y="102" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1561,8 +1501,8 @@
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="base64String" size="2000" source="Formula: [username] + &quot;:&quot; + [password]" type="V_WString" />
-            <Field name="username" size="10" source="TextInput:" type="String" />
-            <Field name="password" size="7" source="TextInput:" type="String" />
+            <Field name="username" size="6" source="TextInput:" type="String" />
+            <Field name="password" size="14" source="TextInput:" type="String" />
             <Field name="Base64_encoded" size="2147483647" source="Formula: [Base64_encoded] + [pad]" type="V_String" />
             <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
           </RecordInfo>
@@ -1572,7 +1512,7 @@
     </Node>
     <Node ToolID="69">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-        <Position x="198" y="474" />
+        <Position x="198" y="486" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1603,6 +1543,268 @@
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="71">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="702" y="678" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Ignore</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="FullAddress" size="64" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="acadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:acadr_bbrid:Concat:" type="V_WString" />
+            <Field name="acadr_loc_x" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="acadr_loc_y" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="acadr_name" size="2048" source="CrossTab:Header:JSON_Name3:acadr_name:Concat:" type="V_WString" />
+            <Field name="id" size="2048" source="CrossTab:Header:JSON_Name3:id:Concat:" type="V_WString" />
+            <Field name="type" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_bbrid" size="2048" source="CrossTab:Header:JSON_Name3:unadr_bbrid:Concat:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="unadr_matchlvl_detail" size="2048" source="CrossTab:Header:JSON_Name3:unadr_matchlvl_detail:Concat:" type="V_WString" />
+            <Field name="url" size="2048" source="CrossTab:Header:JSON_Name3:url:Concat:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="72">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="246" y="1014" width="456" height="76" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Test and error messages
+]]></Text>
+          <Font name="Segoe UI" size="15.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="Silver" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="73">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+        <Position x="474" y="1110" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <When>First</When>
+          <Filter />
+          <Type>ErrorStop</Type>
+          <Priority>High</Priority>
+          <Transient>False</Transient>
+          <MessageExpression>"Error: Please check your username and passowrd"</MessageExpression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+    </Node>
+    <Node ToolID="74">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+        <Position x="474" y="1170" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <When>First</When>
+          <Filter />
+          <Type>ErrorStop</Type>
+          <Priority>High</Priority>
+          <Transient>False</Transient>
+          <MessageExpression>"Error: you have selected variables that you don't have access to: " + [ErrorVariable]</MessageExpression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field description="RegEx: Parsed from DownloadData" name="ErrorVariable" size="2000" source="RegEx: Parsed from DownloadData" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+    </Node>
+    <Node ToolID="75">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="270" y="1134" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>DownloadHeaders</Field>
+            <Operator>Contains</Operator>
+            <Operands>
+              <Operand>401</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([DownloadHeaders],"401")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="77">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="366" y="1170" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <RegExExpression value=".*?variables:(.*?)\.\&quot;" />
+          <CaseInsensitve value="True" />
+          <Method>ParseComplex</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>DownloadData</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="ErrorVariable" type="String" size="2000" />
+          </ParseComplex>
+          <Match>
+            <Field>DownloadData_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Parse:
+.*?variables:(.*?)\.\"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Address" size="24" source="TextInput:" type="String" />
+            <Field name="Postal code" source="TextInput:" type="Int16" />
+            <Field name="City" size="13" source="TextInput:" type="String" />
+            <Field name="Authorization" size="2000" source="Formula: &quot;Basic &quot; + [Base64_encoded]" type="V_WString" />
+            <Field name="Concat_variables1" size="1073741823" source="Summarize: Concat - variables1" type="V_WString" />
+            <Field name="FullAddress" size="64" source="Formula: [Address] + &quot;, &quot;+ ToString([Postal code]) + &quot; &quot; + [City]" type="V_WString" />
+            <Field name="URL" size="3000" source="Formula: &quot;https://apps.conzoom.eu/api/v1/match/dk/geocoder?in_adr=&quot; + [FullAddress] + &quot;&amp;vars=acadr_name,acadr_name,acadr_loc,acadr_bbrid,unadr_bbrid,&quot; + [Concat_variables1]" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field description="RegEx: Parsed from DownloadData" name="ErrorVariable" size="2000" source="RegEx: Parsed from DownloadData" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="70">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="282" y="882" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="0" />
+          <Fields>
+            <Field name="acadr_loc_x" />
+            <Field name="acadr_loc_y" />
+            <Field name="type" />
+            <Field name="unadr_matchlvl" />
+            <Field name="acadr_matchlvl" />
+          </Fields>
+          <Data />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="acadr_loc_x" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="acadr_loc_y" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="type" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="unadr_matchlvl" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="acadr_matchlvl" size="1073741823" source="TextInput:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
     </Node>
   </Nodes>
   <Connections>
@@ -1638,9 +1840,13 @@
       <Origin ToolID="11" Connection="Output" />
       <Destination ToolID="12" Connection="Input" />
     </Connection>
-    <Connection>
+    <Connection name="#1">
       <Origin ToolID="13" Connection="Output" />
-      <Destination ToolID="24" Connection="Input" />
+      <Destination ToolID="71" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="70" Connection="Output" />
+      <Destination ToolID="71" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="14" Connection="Output" />
@@ -1758,13 +1964,13 @@
       <Origin ToolID="54" Connection="Output" />
       <Destination ToolID="36" Connection="Input" />
     </Connection>
-    <Connection name="#1">
-      <Origin ToolID="56" Connection="False" />
-      <Destination ToolID="57" Connection="Input" />
-    </Connection>
     <Connection>
       <Origin ToolID="56" Connection="True" />
       <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="56" Connection="False" />
+      <Destination ToolID="75" Connection="Input" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="58" Connection="Question" />
@@ -1797,6 +2003,22 @@
     <Connection>
       <Origin ToolID="67" Connection="Output" />
       <Destination ToolID="66" Connection="Macro Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="71" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="75" Connection="True" />
+      <Destination ToolID="73" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="75" Connection="False" />
+      <Destination ToolID="77" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="77" Connection="Output" />
+      <Destination ToolID="74" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -1923,6 +2145,26 @@
           <ToolId value="18" />
           <Questions>
             <Question>
+              <Type>TextBox</Type>
+              <Description>Input your Conzoom username</Description>
+              <Name>Text Box (62)</Name>
+              <ToolId value="62" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Input your password</Description>
+              <Name>Text Box (58)</Name>
+              <ToolId value="58" />
+              <Default />
+              <Password value="True" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
               <Type>MacroInput</Type>
               <Description>Macro Input (19)</Description>
               <Name>Macro Input (19)</Name>
@@ -1947,16 +2189,6 @@
               <ToolId value="28" />
             </Question>
             <Question>
-              <Type>TextBox</Type>
-              <Description>Input your password</Description>
-              <Name>Text Box (58)</Name>
-              <ToolId value="58" />
-              <Default />
-              <Password value="True" />
-              <Multiline value="False" />
-              <Hidden value="False" />
-            </Question>
-            <Question>
               <Type>ListBox</Type>
               <Description>Please choose the variables you would like to export</Description>
               <Name>List Box (37)</Name>
@@ -1966,16 +2198,6 @@
               <Multiple_Default value="True" />
               <Mode>DW2</Mode>
               <DW2_Path>.\AssistingMacros\Variables.yxdb</DW2_Path>
-            </Question>
-            <Question>
-              <Type>TextBox</Type>
-              <Description>Input your Conzoom username</Description>
-              <Name>Text Box (62)</Name>
-              <ToolId value="62" />
-              <Default />
-              <Password value="False" />
-              <Multiline value="False" />
-              <Hidden value="False" />
             </Question>
           </Questions>
         </Question>

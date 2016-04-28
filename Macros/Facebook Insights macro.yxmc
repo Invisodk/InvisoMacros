@@ -422,7 +422,7 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Date.Date">
-        <Position x="834" y="186" width="59" height="59" />
+        <Position x="810" y="186" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -435,7 +435,7 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Date.Date">
-        <Position x="978" y="186" width="59" height="59" />
+        <Position x="942" y="186" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -448,7 +448,7 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="990" y="270" width="59" height="59" />
+        <Position x="942" y="270" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -461,7 +461,7 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="846" y="270" width="59" height="59" />
+        <Position x="810" y="270" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -640,11 +640,6 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
           <RecordInfo>
             <Field description="TextToColumns: Parsed from JSON_Name" name="RecordId" size="1073741823" source="CrossTab:Group:First:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:First:" type="V_String" />
-            <Field name="description" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="id" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="name" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="period" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="title" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field name="_Null_" size="1073741823" source="JSONParse: " type="V_WString" />
           </RecordInfo>
           <SortInfo>
@@ -817,8 +812,6 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
             <Field description="TextToColumns: Parsed from Name" name="ValueID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:Concat:" type="V_String" />
             <Field name="RowID" source="CrossTab:Group:Concat:" type="Int32" />
-            <Field name="end_time" size="2048" source="CrossTab:Header:ValueName:end_time:Concat:" type="V_WString" />
-            <Field name="value" size="2048" source="CrossTab:Header:ValueName:value:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo>
             <Field field="RecordId" order="Asc" />
@@ -867,11 +860,6 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
           <RecordInfo>
             <Field description="TextToColumns: Parsed from JSON_Name" name="RecordId" size="1073741823" source="CrossTab:Group:First:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:First:" type="V_String" />
-            <Field name="description" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="id" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="name" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="period" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="title" size="1073741823" source="JSONParse: " type="V_WString" />
           </RecordInfo>
           <SortInfo noProgress="True">
             <Field field="RecordId" />
@@ -882,16 +870,10 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
           <RecordInfo>
             <Field description="TextToColumns: Parsed from JSON_Name" name="RecordId" size="1073741823" source="CrossTab:Group:First:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:First:" type="V_String" />
-            <Field name="description" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="id" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="name" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="period" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="title" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="Right_RecordId" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Right_Page_ID" size="2048" source="CrossTab:Group:Concat:" type="V_String" />
             <Field name="RowID" source="CrossTab:Group:Concat:" type="Int32" />
-            <Field name="end_time" size="1073741823" source="CrossTab: (Multiple Sources)" type="V_WString" />
-            <Field name="value" size="2048" source="CrossTab:Header:ValueName:value:Concat:" type="V_WString" />
+            <Field name="end_time" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from Right_JSON_Name3" name="Additional Value" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="Right_Name" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Date" source="Formula: Left([end_time], 10)" type="Date" />
@@ -906,8 +888,7 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
             <Field description="TextToColumns: Parsed from JSON_Name" name="RecordId" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:Concat:" type="V_String" />
             <Field name="RowID" source="CrossTab:Group:Concat:" type="Int32" />
-            <Field name="end_time" size="1073741823" source="CrossTab: (Multiple Sources)" type="V_WString" />
-            <Field name="value" size="2048" source="CrossTab:Header:ValueName:value:Concat:" type="V_WString" />
+            <Field name="end_time" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from Right_JSON_Name3" name="Additional Value" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="Right_Name" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Date" source="Formula: Left([end_time], 10)" type="Date" />
@@ -948,11 +929,6 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="description" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="Metric name" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="period" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="title" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="value" source="CrossTab:Header:ValueName:value:Concat:" type="Int64" />
             <Field description="TextToColumns: Parsed from Right_JSON_Name3" name="Additional Value" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Date" source="Formula: Left([end_time], 10)" type="Date" />
           </RecordInfo>
@@ -981,8 +957,7 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
             <Field description="TextToColumns: Parsed from Name" name="ValueID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:Concat:" type="V_String" />
             <Field name="RowID" source="CrossTab:Group:Concat:" type="Int32" />
-            <Field name="end_time" size="1073741823" source="CrossTab: (Multiple Sources)" type="V_WString" />
-            <Field name="value" size="2048" source="CrossTab:Header:ValueName:value:Concat:" type="V_WString" />
+            <Field name="end_time" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from Right_JSON_Name3" name="Additional Value" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="Right_Name" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Date" source="Formula: Left([end_time], 10)" type="Date" />
@@ -1012,16 +987,10 @@ Date - Ascending</DefaultAnnotationText>
           <RecordInfo>
             <Field description="TextToColumns: Parsed from JSON_Name" name="RecordId" size="1073741823" source="CrossTab:Group:First:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:First:" type="V_String" />
-            <Field name="description" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="id" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="name" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="period" size="1073741823" source="JSONParse: " type="V_WString" />
-            <Field name="title" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="Right_RecordId" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Right_Page_ID" size="2048" source="CrossTab:Group:Concat:" type="V_String" />
             <Field name="RowID" source="CrossTab:Group:Concat:" type="Int32" />
-            <Field name="end_time" size="1073741823" source="CrossTab: (Multiple Sources)" type="V_WString" />
-            <Field name="value" size="2048" source="CrossTab:Header:ValueName:value:Concat:" type="V_WString" />
+            <Field name="end_time" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from Right_JSON_Name3" name="Additional Value" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="Right_Name" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Date" source="Formula: Left([end_time], 10)" type="Date" />
@@ -1278,7 +1247,6 @@ Date - Ascending</DefaultAnnotationText>
             <Field description="TextToColumns: Parsed from JSON_Name" name="Right_Name" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:Concat:" type="V_String" />
             <Field name="RowID" source="CrossTab:Group:Concat:" type="Int32" />
-            <Field name="value" size="2048" source="CrossTab:Header:ValueName:value:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo>
             <Field field="RecordId" order="Asc" />
@@ -1380,8 +1348,7 @@ Date - Ascending</DefaultAnnotationText>
             <Field description="TextToColumns: Parsed from Name" name="ValueID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:Concat:" type="V_String" />
             <Field name="RowID" source="CrossTab:Group:Concat:" type="Int32" />
-            <Field name="end_time" size="1073741823" source="CrossTab: (Multiple Sources)" type="V_WString" />
-            <Field name="value" size="2048" source="CrossTab:Header:ValueName:value:Concat:" type="V_WString" />
+            <Field name="end_time" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from Right_JSON_Name3" name="Additional Value" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="Right_Name" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
           </RecordInfo>
@@ -1507,7 +1474,7 @@ Date - Ascending</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\DANIEL~1.BRU\AppData\Local\Temp\2\Engine_5428_6c48089aa14c47bfab93448800092498_\Engine_5176_ef983636f42d4bb4819dfa5baebfe500_.yxdb</TempFile>
+          <TempFile>C:\Users\DANIEL~1.BRU\AppData\Local\Temp\2\Engine_5568_ea2c45cbb64c4760a35da9f03d77d14d_\Engine_7172_014252fa00994c83aec6bee975513ef3_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -1591,7 +1558,7 @@ Date - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="66">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1038" y="450" />
+        <Position x="1026" y="450" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1622,7 +1589,7 @@ Date - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="67">
       <GuiSettings Plugin="AlteryxBasePluginsGui.GenerateRows.GenerateRows">
-        <Position x="1134" y="450" />
+        <Position x="1182" y="450" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1646,7 +1613,7 @@ Date - Ascending</DefaultAnnotationText>
             <Field name="Object" size="2048" source="CrossTab:Header:Name:Object:Concat:" type="V_String" />
             <Field name="Page_ID" size="2048" source="CrossTab:Header:Name:Page_ID:Concat:" type="V_String" />
             <Field name="since" source="CrossTab:Header:Name:since:Concat:" type="Int32" />
-            <Field name="until" source="CrossTab:Header:Name:until:Concat:" type="Int32" />
+            <Field name="until" source="Formula: IF &quot;9999&quot; THEN DateTimeDiff(DateTimeNow(), '1970-01-01',&quot;second&quot;) ELSE [until] ENDIF" type="Int32" />
             <Field name="URL" size="2048" source="CrossTab:Header:Name:URL:Concat:" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -1659,7 +1626,7 @@ Date - Ascending</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\DANIEL~1.BRU\AppData\Local\Temp\2\Engine_5428_6c48089aa14c47bfab93448800092498_\Engine_5176_db2c948cad0044558f5440a343f6ed1a_.yxdb</TempFile>
+          <TempFile>C:\Users\DANIEL~1.BRU\AppData\Local\Temp\2\Engine_5568_ea2c45cbb64c4760a35da9f03d77d14d_\Engine_7172_28dd44ad8c9d428a89c720d4907881fc_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -1711,6 +1678,60 @@ Date - Ascending</DefaultAnnotationText>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="71">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.CheckBoxGroup.CheckBoxGroup">
+        <Position x="1074" y="186" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="72">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1110" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="until" type="Int32" size="4" expression="IF &quot;9999&quot; THEN DateTimeDiff(DateTimeNow(), '1970-01-01',&quot;second&quot;) ELSE [until] ENDIF" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>until=IF "9999" THEN DateTimeDiff(DateTimeNow(), '1970-01-01'...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="access_token" size="2048" source="CrossTab:Header:Name:access_token:Concat:" type="V_String" />
+            <Field name="Object" size="2048" source="CrossTab:Header:Name:Object:Concat:" type="V_String" />
+            <Field name="Page_ID" size="2048" source="CrossTab:Header:Name:Page_ID:Concat:" type="V_String" />
+            <Field name="since" source="CrossTab:Header:Name:since:Concat:" type="Int32" />
+            <Field name="until" source="Formula: IF &quot;9999&quot; THEN DateTimeDiff(DateTimeNow(), '1970-01-01',&quot;second&quot;) ELSE [until] ENDIF" type="Int32" />
+            <Field name="URL" size="2048" source="CrossTab:Header:Name:URL:Concat:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="73">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="1086" y="270" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
     </Node>
   </Nodes>
   <Connections>
@@ -1892,7 +1913,11 @@ Date - Ascending</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="66" Connection="Output" />
-      <Destination ToolID="67" Connection="Input" />
+      <Destination ToolID="72" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="73" Connection="Action" />
+      <Destination ToolID="72" Connection="Action" />
     </Connection>
     <Connection>
       <Origin ToolID="67" Connection="Output" />
@@ -1901,6 +1926,14 @@ Date - Ascending</DefaultAnnotationText>
     <Connection Wireless="True">
       <Origin ToolID="70" Connection="Output" />
       <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="71" Connection="Question" />
+      <Destination ToolID="73" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="72" Connection="Output" />
+      <Destination ToolID="67" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -1956,10 +1989,16 @@ Date - Ascending</DefaultAnnotationText>
         <Value />
         <IsNumeric value="False" />
       </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Check Box (71)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
     </Constants>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>Facebook Insights macro</Name>
+      <Name>Facebook Insights macroUntilToday</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
@@ -1993,7 +2032,7 @@ Date - Ascending</DefaultAnnotationText>
               <Type>UpdateValueFormula</Type>
               <Description />
               <ToolId value="24" />
-              <Expression>DateTimeDiff([#1], '1970-01-01',"second")</Expression>
+              <Expression>ToString(DateTimeDiff([#1], '1970-01-01',"second"),0)</Expression>
               <Destination>1/Data/r[4]/c[2]</Destination>
               <Mode>Expression</Mode>
             </Action>
@@ -2001,7 +2040,7 @@ Date - Ascending</DefaultAnnotationText>
               <Type>UpdateValueFormula</Type>
               <Description />
               <ToolId value="25" />
-              <Expression>DateTimeDiff([#1], '1970-01-01',"second")</Expression>
+              <Expression>ToString(DateTimeDiff([#1], '1970-01-01',"second"),0)</Expression>
               <Destination>1/Data/r[3]/c[2]</Destination>
               <Mode>Expression</Mode>
             </Action>
@@ -2022,6 +2061,16 @@ Date - Ascending</DefaultAnnotationText>
               <Variable />
               <Replace value="False" />
               <Destination>1/Data/r[6]/c[2]</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="73" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>9999</ReplaceText>
+              <Destination>72/FormulaFields/FormulaField/@expression</Destination>
             </Action>
           </True>
         </NoCondition>
@@ -2071,6 +2120,15 @@ Date - Ascending</DefaultAnnotationText>
               <Description>From</Description>
               <Name>Date (18)</Name>
               <ToolId value="18" />
+            </Question>
+            <Question>
+              <Type>BooleanGroup</Type>
+              <Description>Until now</Description>
+              <Name>Check Box (71)</Name>
+              <ToolId value="71" />
+              <Questions />
+              <Default value="False" />
+              <Collapsable value="True" />
             </Question>
             <Question>
               <Type>Date</Type>

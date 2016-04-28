@@ -612,7 +612,7 @@ EndIf</Expression>
                 <Configuration />
               </InputConfiguration>
               <ProgramName>powershell.exe</ProgramName>
-              <Arguments><![CDATA[ -ExecutionPolicy ByPass -File .\powershell.ps1 -step 99999 -op "OutputPath"]]></Arguments>
+              <Arguments><![CDATA[ -ExecutionPolicy ByPass -File .\powershell.ps1 -step "99999" -op "OutputPath"]]></Arguments>
               <WorkingDir />
               <RunMinimized value="True" />
               <RunSilent value="True" />

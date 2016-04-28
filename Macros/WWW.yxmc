@@ -68,9 +68,10 @@
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="200" source="TextInput:" type="V_WString" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
             <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -80,9 +81,10 @@
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="200" source="TextInput:" type="V_WString" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
             <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -114,9 +116,10 @@ Re...</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="200" source="TextInput:" type="V_WString" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
             <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
           </RecordInfo>
@@ -144,9 +147,10 @@ Re...</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="200" source="TextInput:" type="V_WString" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
@@ -199,9 +203,10 @@ Re...</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="200" source="TextInput:" type="V_WString" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
             <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -246,9 +251,10 @@ HTTP\/1.1 200 OK.*</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="200" source="TextInput:" type="V_WString" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
             <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -282,9 +288,10 @@ HTTP\/1.1 200 OK.*</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="200" source="TextInput:" type="V_WString" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
@@ -372,9 +379,10 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="URL" size="3" source="TextInput:" type="String" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field description="RegEx: Parsed from URL" name="FirstPage" source="Formula: IF ISNULL([FirstPage]) THEN 1 ELSE [FirstPage] ENDIF" type="Int64" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
           </RecordInfo>
@@ -426,9 +434,10 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="200" source="TextInput:" type="V_WString" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
             <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -438,9 +447,10 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="200" source="TextInput:" type="V_WString" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
             <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -533,9 +543,10 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="200" source="TextInput:" type="V_WString" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
             <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -611,6 +622,7 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
             <Field name="URLToCall" size="200" source="Formula: IF [Engine.IterationNumber] == 0&#xA;THEN&#xA;[URL]&#xA;ELSE&#xA;Replace([URL2], [Difference], [PageNumber])&#xA;ENDIF" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
             <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
@@ -655,7 +667,10 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="URL" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
             <Field description="RegEx: Parsed from URL" name="FirstPage" source="RegEx: Parsed from URL" type="Int64" />
           </RecordInfo>
         </MetaInfo>
@@ -688,17 +703,19 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="40">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="258" y="342" />
+    <Node ToolID="41">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="54" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
-          <SelectFields>
-            <SelectField field="Field1" selected="True" rename="URL" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
+          <NumRows value="0" />
+          <Fields>
+            <Field name="Difference" />
+            <Field name="URL" />
+            <Field name="URL2" />
+          </Fields>
+          <Data />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -707,11 +724,40 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="URL" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="246" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Ignore</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL2" size="1073741823" source="TextInput:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
     </Node>
   </Nodes>
   <Connections>
@@ -767,9 +813,13 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
       <Origin ToolID="22" Connection="True" />
       <Destination ToolID="35" Connection="Input" />
     </Connection>
-    <Connection>
+    <Connection name="#1">
       <Origin ToolID="23" Connection="Output8" />
-      <Destination ToolID="40" Connection="Input" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="24" Connection="Question" />
@@ -804,7 +854,7 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
       <Destination ToolID="39" Connection="Question" />
     </Connection>
     <Connection>
-      <Origin ToolID="40" Connection="Output" />
+      <Origin ToolID="42" Connection="Output" />
       <Destination ToolID="37" Connection="Input" />
     </Connection>
   </Connections>

@@ -640,6 +640,12 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
           <RecordInfo>
             <Field description="TextToColumns: Parsed from JSON_Name" name="RecordId" size="1073741823" source="CrossTab:Group:First:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:First:" type="V_String" />
+            <Field name="description" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="id" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="period" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="title" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="_Null_" size="1073741823" source="JSONParse: " type="V_WString" />
           </RecordInfo>
           <SortInfo>
             <Field field="RecordId" order="Asc" />
@@ -861,6 +867,11 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
           <RecordInfo>
             <Field description="TextToColumns: Parsed from JSON_Name" name="RecordId" size="1073741823" source="CrossTab:Group:First:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:First:" type="V_String" />
+            <Field name="description" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="id" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="period" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="title" size="1073741823" source="JSONParse: " type="V_WString" />
           </RecordInfo>
           <SortInfo noProgress="True">
             <Field field="RecordId" />
@@ -871,6 +882,11 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
           <RecordInfo>
             <Field description="TextToColumns: Parsed from JSON_Name" name="RecordId" size="1073741823" source="CrossTab:Group:First:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:First:" type="V_String" />
+            <Field name="description" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="id" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="period" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="title" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="Right_RecordId" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Right_Page_ID" size="2048" source="CrossTab:Group:Concat:" type="V_String" />
             <Field name="RowID" source="CrossTab:Group:Concat:" type="Int32" />
@@ -918,6 +934,7 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
             <SelectField field="name" selected="True" rename="Metric name" />
             <SelectField field="Right_RecordId" selected="False" />
             <SelectField field="Right_Page_ID" selected="False" />
+            <SelectField field="RowID" selected="False" />
             <SelectField field="end_time" selected="False" rename="Date" />
             <SelectField field="value" selected="True" type="Int64" size="8" />
             <SelectField field="Right_Name" selected="False" />
@@ -931,7 +948,10 @@ until=IF ([since]+2678400)&gt;[until] THEN [until] ELSE [since]+...</DefaultAnno
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="RowID" source="CrossTab:Group:Concat:" type="Int32" />
+            <Field name="description" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Metric name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="period" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="title" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field name="value" source="CrossTab:Header:ValueName:value:Concat:" type="Int64" />
             <Field description="TextToColumns: Parsed from Right_JSON_Name3" name="Additional Value" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Date" source="Formula: Left([end_time], 10)" type="Date" />
@@ -992,6 +1012,11 @@ Date - Ascending</DefaultAnnotationText>
           <RecordInfo>
             <Field description="TextToColumns: Parsed from JSON_Name" name="RecordId" size="1073741823" source="CrossTab:Group:First:" type="V_WString" />
             <Field name="Page_ID" size="2048" source="CrossTab:Group:First:" type="V_String" />
+            <Field name="description" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="id" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="period" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="title" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="Right_RecordId" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="Right_Page_ID" size="2048" source="CrossTab:Group:Concat:" type="V_String" />
             <Field name="RowID" source="CrossTab:Group:Concat:" type="Int32" />
@@ -1482,7 +1507,7 @@ Date - Ascending</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\DANIEL~1.BRU\AppData\Local\Temp\2\Engine_3532_47da26abc0b44d9d8d2c4c7e00fc5cfc_\Engine_5176_d59c69ff2feb45b48e09002c17cf9be9_.yxdb</TempFile>
+          <TempFile>C:\Users\DANIEL~1.BRU\AppData\Local\Temp\2\Engine_5428_6c48089aa14c47bfab93448800092498_\Engine_5176_ef983636f42d4bb4819dfa5baebfe500_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -1634,7 +1659,7 @@ Date - Ascending</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\DANIEL~1.BRU\AppData\Local\Temp\2\Engine_3532_47da26abc0b44d9d8d2c4c7e00fc5cfc_\Engine_5176_e2e40a58459b4f40adf26df386e2581d_.yxdb</TempFile>
+          <TempFile>C:\Users\DANIEL~1.BRU\AppData\Local\Temp\2\Engine_5428_6c48089aa14c47bfab93448800092498_\Engine_5176_db2c948cad0044558f5440a343f6ed1a_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>

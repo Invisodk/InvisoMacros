@@ -144,9 +144,9 @@ Re...</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="200" source="TextInput:" type="V_WString" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
@@ -372,9 +372,9 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="URL" size="3" source="TextInput:" type="String" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL" size="1073741823" source="TextInput:" type="V_WString" />
             <Field description="RegEx: Parsed from URL" name="FirstPage" source="Formula: IF ISNULL([FirstPage]) THEN 1 ELSE [FirstPage] ENDIF" type="Int64" />
             <Field name="PageNumber" size="2000" source="Formula: Regex_replace([Difference],&quot;\d+&quot;,ToString([Engine.IterationNumber]*999+[FirstPage]))" type="V_WString" />
           </RecordInfo>
@@ -655,9 +655,9 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="URL" size="3" source="TextInput:" type="String" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL" size="1073741823" source="TextInput:" type="V_WString" />
             <Field description="RegEx: Parsed from URL" name="FirstPage" source="RegEx: Parsed from URL" type="Int64" />
           </RecordInfo>
         </MetaInfo>
@@ -690,17 +690,18 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="40">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="258" y="342" />
+    <Node ToolID="41">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="54" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
-          <SelectFields>
-            <SelectField field="Field1" selected="True" rename="URL" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
+          <NumRows value="0" />
+          <Fields>
+            <Field name="Difference" />
+            <Field name="URL" />
+          </Fields>
+          <Data />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -709,13 +710,38 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="URL" size="3" source="TextInput:" type="String" />
-            <Field name="URL2" size="3" source="TextInput:" type="String" />
-            <Field name="Difference" size="3" source="TextInput:" type="String" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL" size="1073741823" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="246" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Ignore</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field1" source="TextInput: (BatchMacro) (BatchMacro)" type="Byte" />
+            <Field name="Difference" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="URL" size="1073741823" source="TextInput:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
     </Node>
   </Nodes>
   <Connections>
@@ -772,6 +798,14 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
       <Destination ToolID="35" Connection="Input" />
     </Connection>
     <Connection name="#1">
+      <Origin ToolID="23" Connection="Output8" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
       <Origin ToolID="24" Connection="Question" />
       <Destination ToolID="25" Connection="Question" />
     </Connection>
@@ -786,10 +820,6 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
     <Connection>
       <Origin ToolID="27" Connection="Output" />
       <Destination ToolID="26" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="32" Connection="Output" />
-      <Destination ToolID="40" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="35" Connection="Output" />
@@ -808,7 +838,7 @@ PageNumber=Regex_replace([Difference],"\d+",ToString([Engine....</DefaultAnnotat
       <Destination ToolID="39" Connection="Question" />
     </Connection>
     <Connection>
-      <Origin ToolID="40" Connection="Output" />
+      <Origin ToolID="42" Connection="Output" />
       <Destination ToolID="37" Connection="Input" />
     </Connection>
   </Connections>
