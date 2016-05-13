@@ -1761,23 +1761,6 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
     </Node>
-    <Node ToolID="79">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="810" y="594" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Name>Testing</Name>
-          <Abbrev>T</Abbrev>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
-    </Node>
     <Node ToolID="80">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
         <Position x="1062" y="690" />
@@ -2100,10 +2083,6 @@
       <Destination ToolID="24" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="71" Connection="Output" />
-      <Destination ToolID="79" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="75" Connection="True" />
       <Destination ToolID="73" Connection="Input" />
     </Connection>
@@ -2176,12 +2155,6 @@
       <Constant>
         <Namespace>Question</Namespace>
         <Name>Text Box (62)</Name>
-        <Value />
-        <IsNumeric value="False" />
-      </Constant>
-      <Constant>
-        <Namespace>Question</Namespace>
-        <Name>Macro Output (79)</Name>
         <Value />
         <IsNumeric value="False" />
       </Constant>
@@ -2304,12 +2277,6 @@
               <Mode>DW2</Mode>
               <DW2_Path>.\AssistingMacros\Variables.yxdb</DW2_Path>
             </Question>
-            <Question>
-              <Type>MacroOutput</Type>
-              <Description>Macro Output (78)</Description>
-              <Name>Macro Output (79)</Name>
-              <ToolId value="79" />
-            </Question>
           </Questions>
         </Question>
       </Questions>
@@ -2328,7 +2295,6 @@
         <Tool ToolId="27" Selected="True" />
         <Tool ToolId="28" Selected="True" />
         <Tool ToolId="66" Selected="True" />
-        <Tool ToolId="79" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
