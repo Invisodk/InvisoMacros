@@ -11,6 +11,7 @@
           <Name>DataInput</Name>
           <Abbrev>D</Abbrev>
           <ShowFieldMap value="False" />
+          <Optional value="False" />
           <TextInput>
             <Configuration>
               <NumRows value="2" />
@@ -130,6 +131,7 @@ Table=Select * From SalesData</AnnotationText>
                 <AllowShareWrite>False</AllowShareWrite>
                 <HeaderRow>True</HeaderRow>
                 <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <ImportLine>1</ImportLine>
               </FormatSpecificOptions>
             </Configuration>
           </InputConfiguration>
@@ -533,7 +535,7 @@ Data=groupingField
               <ToolId value="21" />
               <SaveAs value="False" />
               <Mode>FileSpec</Mode>
-              <FileSpec>Tableau files (*.twb)</FileSpec>
+              <FileSpec>Tableau files (*.twb)|*.twb</FileSpec>
             </Question>
             <Question>
               <Type>ListBox</Type>
