@@ -16,7 +16,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-        <Position x="174" y="102" />
+        <Position x="186" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -62,7 +62,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
-        <Position x="510" y="102" />
+        <Position x="522" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -86,7 +86,7 @@
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="618" y="102" />
+        <Position x="630" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -116,7 +116,7 @@
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="282" y="102" />
+        <Position x="294" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -147,7 +147,7 @@
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-        <Position x="726" y="102" />
+        <Position x="738" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -185,7 +185,7 @@
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1134" y="114" />
+        <Position x="1146" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -224,7 +224,7 @@
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1374" y="150" />
+        <Position x="1386" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -269,7 +269,7 @@
     </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="162" y="282" />
+        <Position x="174" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -300,7 +300,7 @@
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="54" y="102" />
+        <Position x="66" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -337,7 +337,7 @@
     </Node>
     <Node ToolID="30">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1698" y="138" />
+        <Position x="1854" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -354,7 +354,7 @@
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="258" y="282" />
+        <Position x="270" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -371,7 +371,7 @@
     </Node>
     <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1554" y="138" />
+        <Position x="1758" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -380,6 +380,7 @@
             <SelectField field="id" selected="True" />
             <SelectField field="message" selected="True" />
             <SelectField field="story" selected="True" />
+            <SelectField field="Published" selected="True" />
             <SelectField field="*Unknown" selected="False" />
           </SelectFields>
         </Configuration>
@@ -393,6 +394,7 @@
             <Field name="id" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="message" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="story" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Published" source="Formula: DateTimeParse([created_time],'%Y-%m-%dT%H:%M:%S')" type="DateTime" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -400,7 +402,7 @@
     </Node>
     <Node ToolID="33">
       <GuiSettings>
-        <Position x="930" y="198" />
+        <Position x="942" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -419,7 +421,7 @@
     </Node>
     <Node ToolID="35">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-        <Position x="1026" y="114" />
+        <Position x="1038" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -454,7 +456,7 @@
     </Node>
     <Node ToolID="36">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="66" y="282" />
+        <Position x="78" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -484,7 +486,7 @@
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="1374" y="246" />
+        <Position x="1386" y="294" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -513,7 +515,7 @@
     </Node>
     <Node ToolID="38">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="1470" y="138" />
+        <Position x="1482" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -543,7 +545,7 @@
     </Node>
     <Node ToolID="39">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="42" y="6" width="324" height="84" />
+        <Position x="54" y="54" width="324" height="84" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -563,7 +565,7 @@
     </Node>
     <Node ToolID="40">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="474" y="6" width="324" height="84" />
+        <Position x="486" y="54" width="324" height="84" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -583,7 +585,7 @@
     </Node>
     <Node ToolID="41">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="870" y="6" width="324" height="84" />
+        <Position x="882" y="54" width="324" height="84" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -604,7 +606,7 @@
     </Node>
     <Node ToolID="42">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="42" y="186" width="324" height="84" />
+        <Position x="54" y="234" width="324" height="84" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -624,7 +626,7 @@
     </Node>
     <Node ToolID="43">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1326" y="18" width="504" height="84" />
+        <Position x="1338" y="66" width="504" height="84" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -641,6 +643,36 @@
           <Left value="False" />
         </Annotation>
       </Properties>
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1662" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Published" type="DateTime" size="19" expression="DateTimeParse([created_time],'%Y-%m-%dT%H:%M:%S')" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Published=DateTimeParse([created_time],'%Y-%m-%dT%H:%M:%S')</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="created_time" size="2048" source="CrossTab:Header:JSON_Name3:created_time:Concat:" type="V_WString" />
+            <Field name="id" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="message" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="story" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="_Null_" size="2048" source="CrossTab:Header:JSON_Name3:[Null]:Concat:" type="V_WString" />
+            <Field name="Count" source="(Multiple Sources)" type="Int64" />
+            <Field name="Published" source="Formula: DateTimeParse([created_time],'%Y-%m-%dT%H:%M:%S')" type="DateTime" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
   </Nodes>
   <Connections>
@@ -710,6 +742,10 @@
     </Connection>
     <Connection>
       <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
       <Destination ToolID="32" Connection="Input" />
     </Connection>
   </Connections>
