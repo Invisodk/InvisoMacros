@@ -134,7 +134,7 @@ Table=Select * From SalesData</AnnotationText>
             </Configuration>
           </InputConfiguration>
           <ProgramName>cmd</ProgramName>
-          <Arguments>/c mkdir TEMPDIR\temp</Arguments>
+          <Arguments>/c mkdir "TEMPDIR\temp"</Arguments>
           <WorkingDir />
           <RunMinimized value="False" />
           <RunSilent value="False" />

@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="44">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="54" y="138" />
+        <Position x="66" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -11,6 +11,7 @@
           <Name>Input44</Name>
           <Abbrev />
           <ShowFieldMap value="False" />
+          <Optional value="False" />
           <TextInput>
             <Configuration>
               <NumRows value="0" />
@@ -20,6 +21,7 @@
                 <Field name="story" />
                 <Field name="URL" />
                 <Field name="DownloadData" />
+                <Field name="Published" />
               </Fields>
               <Data />
             </Configuration>
@@ -38,6 +40,7 @@
             <Field name="story" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="Published" size="1073741823" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -45,7 +48,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="258" y="138" />
+        <Position x="270" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -67,6 +70,7 @@
             <Field name="message" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="story" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="Published" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name1" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
@@ -79,7 +83,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
-        <Position x="162" y="138" />
+        <Position x="174" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -98,6 +102,7 @@
             <Field name="message" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="story" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="URL" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="Published" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
           </RecordInfo>
@@ -107,7 +112,7 @@
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="378" y="138" />
+        <Position x="390" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -116,6 +121,7 @@
             <SelectField field="id" selected="True" />
             <SelectField field="message" selected="True" />
             <SelectField field="story" selected="True" />
+            <SelectField field="Published" selected="True" type="DateTime" size="19" />
             <SelectField field="JSON_ValueString" selected="True" rename="Value" />
             <SelectField field="JSON_Name2" selected="True" rename="ValueID" />
             <SelectField field="JSON_Name3" selected="True" rename="ValueName" />
@@ -132,6 +138,7 @@
             <Field name="id" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="message" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="story" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="Published" source="TextInput:" type="DateTime" />
             <Field name="Value" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueName" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
@@ -142,7 +149,7 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="582" y="234" />
+        <Position x="594" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -165,6 +172,7 @@
             <Field name="id" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="message" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="story" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="Published" source="TextInput:" type="DateTime" />
             <Field name="Value" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueName" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
@@ -175,6 +183,7 @@
             <Field name="id" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="message" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="story" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="Published" source="TextInput:" type="DateTime" />
             <Field name="Value" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueName" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
@@ -185,7 +194,7 @@
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-        <Position x="774" y="126" />
+        <Position x="786" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -193,6 +202,7 @@
             <Field field="id" />
             <Field field="message" />
             <Field field="story" />
+            <Field field="Published" />
             <Field field="ValueID" />
           </GroupFields>
           <HeaderField field="ValueName" />
@@ -213,18 +223,14 @@
             <Field name="id" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="message" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="story" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="Published" source="CrossTab:Group:Concat:" type="DateTime" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
-            <Field name="description" size="2048" source="CrossTab:Header:ValueName:description:Concat:" type="V_WString" />
-            <Field name="name" size="2048" source="CrossTab:Header:ValueName:name:Concat:" type="V_WString" />
-            <Field name="period" size="2048" source="CrossTab:Header:ValueName:period:Concat:" type="V_WString" />
-            <Field name="title" size="2048" source="CrossTab:Header:ValueName:title:Concat:" type="V_WString" />
-            <Field name="values_0_value" size="2048" source="CrossTab:Header:ValueName:values.0.value:Concat:" type="V_WString" />
-            <Field name="_Null_" size="2048" source="CrossTab:Header:ValueName:[Null]:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo>
             <Field field="id" order="Asc" />
             <Field field="message" order="Asc" />
             <Field field="story" order="Asc" />
+            <Field field="Published" order="Asc" />
             <Field field="ValueID" order="Asc" />
           </SortInfo>
         </MetaInfo>
@@ -233,7 +239,7 @@
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="678" y="426" />
+        <Position x="690" y="450" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -254,6 +260,7 @@
             <Field name="id" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="message" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="story" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="Published" source="TextInput:" type="DateTime" />
             <Field name="Value" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueName" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
@@ -268,7 +275,7 @@
     </Node>
     <Node ToolID="30">
       <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-        <Position x="786" y="426" />
+        <Position x="798" y="450" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -276,6 +283,7 @@
             <Field field="id" />
             <Field field="message" />
             <Field field="story" />
+            <Field field="Published" />
             <Field field="ValueID" />
             <Field field="ValueName4" />
           </GroupFields>
@@ -297,14 +305,15 @@
             <Field name="id" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="message" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="story" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="Published" source="CrossTab:Group:Concat:" type="DateTime" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from ValueName" name="ValueName4" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
-            <Field name="values" size="2048" source="CrossTab:Header:ValueName1:values:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo>
             <Field field="id" order="Asc" />
             <Field field="message" order="Asc" />
             <Field field="story" order="Asc" />
+            <Field field="Published" order="Asc" />
             <Field field="ValueID" order="Asc" />
             <Field field="ValueName4" order="Asc" />
           </SortInfo>
@@ -314,7 +323,7 @@
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1026" y="222" />
+        <Position x="1038" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -333,17 +342,18 @@
                 <SelectField field="Left_id" selected="True" />
                 <SelectField field="Left_message" selected="True" />
                 <SelectField field="Left_story" selected="True" />
+                <SelectField field="Left_Published" selected="True" />
                 <SelectField field="Left_ValueID" selected="True" />
-                <SelectField field="Left_description" selected="True" />
-                <SelectField field="Left_name" selected="True" />
-                <SelectField field="Left_period" selected="True" />
-                <SelectField field="Left_title" selected="True" />
-                <SelectField field="Left_values_0_value" selected="True" />
                 <SelectField field="Right_id" selected="False" rename="Right_id" />
                 <SelectField field="Right_message" selected="False" rename="Right_message" />
                 <SelectField field="Right_story" selected="False" rename="Right_story" />
                 <SelectField field="Right_ValueID" selected="False" rename="Right_ValueID" />
                 <SelectField field="Right_ValueName4" selected="True" />
+                <SelectField field="Left_description" selected="True" />
+                <SelectField field="Left_name" selected="True" />
+                <SelectField field="Left_period" selected="True" />
+                <SelectField field="Left_title" selected="True" />
+                <SelectField field="Left_values_0_value" selected="True" />
                 <SelectField field="Right_values" selected="True" />
                 <SelectField field="*Unknown" selected="False" />
               </SelectFields>
@@ -360,13 +370,8 @@
             <Field name="id" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="message" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="story" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="Published" source="CrossTab:Group:Concat:" type="DateTime" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
-            <Field name="description" size="2048" source="CrossTab:Header:ValueName:description:Concat:" type="V_WString" />
-            <Field name="name" size="2048" source="CrossTab:Header:ValueName:name:Concat:" type="V_WString" />
-            <Field name="period" size="2048" source="CrossTab:Header:ValueName:period:Concat:" type="V_WString" />
-            <Field name="title" size="2048" source="CrossTab:Header:ValueName:title:Concat:" type="V_WString" />
-            <Field name="values_0_value" size="2048" source="CrossTab:Header:ValueName:values.0.value:Concat:" type="V_WString" />
-            <Field name="_Null_" size="2048" source="CrossTab:Header:ValueName:[Null]:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo noProgress="True">
             <Field field="ValueID" />
@@ -378,14 +383,9 @@
             <Field name="id" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="message" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="story" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="Published" source="CrossTab:Group:Concat:" type="DateTime" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
-            <Field name="description" size="2048" source="CrossTab:Header:ValueName:description:Concat:" type="V_WString" />
-            <Field name="name" size="2048" source="CrossTab:Header:ValueName:name:Concat:" type="V_WString" />
-            <Field name="period" size="2048" source="CrossTab:Header:ValueName:period:Concat:" type="V_WString" />
-            <Field name="title" size="2048" source="CrossTab:Header:ValueName:title:Concat:" type="V_WString" />
-            <Field name="values_0_value" size="2048" source="CrossTab:Header:ValueName:values.0.value:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from ValueName" name="ValueName4" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
-            <Field name="values" size="2048" source="CrossTab:Header:ValueName1:values:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo>
             <Field field="ValueID" order="" />
@@ -397,7 +397,6 @@
             <Field name="id" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from ValueName" name="ValueName4" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
-            <Field name="values" size="2048" source="CrossTab:Header:ValueName1:values:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo noProgress="True">
             <Field field="ValueID" />
@@ -409,7 +408,7 @@
     </Node>
     <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1110" y="162" />
+        <Position x="1122" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -431,12 +430,8 @@
             <Field name="id" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="message" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="story" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="Published" source="CrossTab:Group:Concat:" type="DateTime" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
-            <Field name="description" size="2048" source="CrossTab:Header:ValueName:description:Concat:" type="V_WString" />
-            <Field name="name" size="2048" source="CrossTab:Header:ValueName:name:Concat:" type="V_WString" />
-            <Field name="period" size="2048" source="CrossTab:Header:ValueName:period:Concat:" type="V_WString" />
-            <Field name="title" size="2048" source="CrossTab:Header:ValueName:title:Concat:" type="V_WString" />
-            <Field name="values" size="2048" source="CrossTab:Header:ValueName:values.0.value:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo>
             <Field field="ValueID" order="" />
@@ -448,15 +443,15 @@
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1110" y="282" />
+        <Position x="1122" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OrderChanged value="False" />
           <SelectFields>
+            <SelectField field="ValueName4" selected="True" rename="Extra field" />
             <SelectField field="values_0_value" selected="False" />
             <SelectField field="Right_id" selected="False" />
-            <SelectField field="ValueName4" selected="True" rename="Extra field" />
             <SelectField field="id2" selected="False" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
@@ -471,13 +466,9 @@
             <Field name="id" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="message" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="story" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="Published" source="CrossTab:Group:Concat:" type="DateTime" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
-            <Field name="description" size="2048" source="CrossTab:Header:ValueName:description:Concat:" type="V_WString" />
-            <Field name="name" size="2048" source="CrossTab:Header:ValueName:name:Concat:" type="V_WString" />
-            <Field name="period" size="2048" source="CrossTab:Header:ValueName:period:Concat:" type="V_WString" />
-            <Field name="title" size="2048" source="CrossTab:Header:ValueName:title:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from ValueName" name="Extra field" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
-            <Field name="values" size="2048" source="CrossTab:Header:ValueName1:values:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo>
             <Field field="ValueID" order="" />
@@ -489,7 +480,7 @@
     </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="1230" y="222" />
+        <Position x="1242" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -508,12 +499,8 @@
             <Field name="id" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="message" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
             <Field name="story" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+            <Field name="Published" source="CrossTab:Group:Concat:" type="DateTime" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
-            <Field name="description" size="2048" source="CrossTab:Header:ValueName:description:Concat:" type="V_WString" />
-            <Field name="name" size="2048" source="CrossTab:Header:ValueName:name:Concat:" type="V_WString" />
-            <Field name="period" size="2048" source="CrossTab:Header:ValueName:period:Concat:" type="V_WString" />
-            <Field name="title" size="2048" source="CrossTab:Header:ValueName:title:Concat:" type="V_WString" />
-            <Field name="values" size="2048" source="CrossTab: (Multiple Sources)" type="V_WString" />
             <Field description="TextToColumns: Parsed from ValueName" name="Extra field" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
@@ -522,7 +509,7 @@
     </Node>
     <Node ToolID="35">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="654" y="126" />
+        <Position x="666" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -539,6 +526,7 @@
             <Field name="id" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="message" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="story" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="Published" source="TextInput:" type="DateTime" />
             <Field name="Value" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueName" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
@@ -549,6 +537,7 @@
             <Field name="id" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="message" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="story" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="Published" source="TextInput:" type="DateTime" />
             <Field name="Value" size="1073741823" source="JSONParse: " type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueID" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
             <Field description="TextToColumns: Parsed from JSON_Name" name="ValueName" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
@@ -559,7 +548,7 @@
     </Node>
     <Node ToolID="36">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1314" y="222" />
+        <Position x="1326" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -584,7 +573,7 @@
             <Field name="name" size="2048" source="CrossTab:Header:ValueName:name:Concat:" type="V_WString" />
             <Field name="period" size="2048" source="CrossTab:Header:ValueName:period:Concat:" type="V_WString" />
             <Field name="title" size="2048" source="CrossTab:Header:ValueName:title:Concat:" type="V_WString" />
-            <Field name="values" size="2048" source="CrossTab: (Multiple Sources)" type="V_WString" />
+            <Field name="values" size="2048" source="CrossTab:Header:ValueName:values.0.value:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from ValueName" name="Extra field" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
@@ -598,7 +587,7 @@
             <Field name="name" size="2048" source="CrossTab:Header:ValueName:name:Concat:" type="V_WString" />
             <Field name="period" size="2048" source="CrossTab:Header:ValueName:period:Concat:" type="V_WString" />
             <Field name="title" size="2048" source="CrossTab:Header:ValueName:title:Concat:" type="V_WString" />
-            <Field name="values" size="2048" source="CrossTab: (Multiple Sources)" type="V_WString" />
+            <Field name="values" size="2048" source="CrossTab:Header:ValueName:values.0.value:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from ValueName" name="Extra field" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
@@ -607,7 +596,7 @@
     </Node>
     <Node ToolID="38">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="1446" y="222" />
+        <Position x="1458" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -630,7 +619,7 @@
             <Field name="name" size="2048" source="CrossTab:Header:ValueName:name:Concat:" type="V_WString" />
             <Field name="period" size="2048" source="CrossTab:Header:ValueName:period:Concat:" type="V_WString" />
             <Field name="title" size="2048" source="CrossTab:Header:ValueName:title:Concat:" type="V_WString" />
-            <Field name="values" size="2048" source="CrossTab: (Multiple Sources)" type="V_WString" />
+            <Field name="values" size="2048" source="CrossTab:Header:ValueName:values.0.value:Concat:" type="V_WString" />
             <Field description="TextToColumns: Parsed from ValueName" name="Extra field" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
           </RecordInfo>
           <SortInfo locale="0">
@@ -642,7 +631,7 @@
     </Node>
     <Node ToolID="39">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="42" y="30" width="396" height="72" />
+        <Position x="54" y="54" width="396" height="72" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -663,7 +652,7 @@
     </Node>
     <Node ToolID="40">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="606" y="30" width="396" height="72" />
+        <Position x="618" y="54" width="396" height="72" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -683,7 +672,7 @@
     </Node>
     <Node ToolID="41">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="582" y="354" width="396" height="72" />
+        <Position x="594" y="378" width="396" height="72" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -704,7 +693,7 @@
     </Node>
     <Node ToolID="42">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1062" y="30" width="528" height="72" />
+        <Position x="1074" y="54" width="528" height="72" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -727,6 +716,7 @@
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -736,7 +726,7 @@
     </Node>
     <Node ToolID="45">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1554" y="222" />
+        <Position x="1566" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -903,8 +893,8 @@
       <Wiz_CustomGraphic value="False" />
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
-        <Tool ToolId="45" Selected="True" />
         <Tool ToolId="44" Selected="True" />
+        <Tool ToolId="45" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
