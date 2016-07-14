@@ -105,6 +105,7 @@
           <Value name="File Browse (64)">99999</Value>
           <Value name="Text Box (86)">99999</Value>
           <Value name="File Browse (88)">temp</Value>
+          <Value name="Text Box (91)">2.tde</Value>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -179,6 +180,32 @@
         </Annotation>
       </Properties>
     </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="606" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="606" y="210" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -201,6 +228,10 @@
       <Origin ToolID="13" Connection="Action" />
       <Destination ToolID="8" Connection="Action" />
     </Connection>
+    <Connection name="#6">
+      <Origin ToolID="16" Connection="Action" />
+      <Destination ToolID="8" Connection="Action" />
+    </Connection>
     <Connection name="#1">
       <Origin ToolID="3" Connection="Question" />
       <Destination ToolID="7" Connection="Question" />
@@ -216,6 +247,10 @@
     <Connection name="#1">
       <Origin ToolID="14" Connection="Question" />
       <Destination ToolID="13" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="15" Connection="Question" />
+      <Destination ToolID="16" Connection="Question" />
     </Connection>
   </Connections>
   <Properties>
@@ -256,6 +291,12 @@
       <Constant>
         <Namespace>Question</Namespace>
         <Name>Folder Browse (14)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Text Box (15)</Name>
         <Value />
         <IsNumeric value="False" />
       </Constant>
@@ -321,6 +362,15 @@
               <Replace value="False" />
               <Destination>8/Value[@name='File Browse (88)']</Destination>
             </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="16" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>8/Value[@name='Text Box (91)']</Destination>
+            </Action>
           </True>
         </NoCondition>
       </Actions>
@@ -357,6 +407,16 @@
               <Description>Output Location</Description>
               <Name>Folder Browse (14)</Name>
               <ToolId value="14" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Text Box (15)</Description>
+              <Name>Text Box (15)</Name>
+              <ToolId value="15" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
             </Question>
           </Questions>
         </Question>

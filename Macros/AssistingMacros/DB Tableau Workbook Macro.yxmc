@@ -128,6 +128,193 @@ This is a great example of how alteryx can interact with un- or semi-structured 
         </Annotation>
       </Properties>
     </Node>
+    <Node ToolID="91">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="378" y="102" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="92">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="570" y="282" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="95">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="414" y="1302" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>Field_1</Field>
+            <Operator>IsNotNull</Operator>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsNull([Field_1])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: W:\SVN repositories\Product_Content\Desktop\Tableau_Samples_2015\Supporting_Macros\Polygons.twb" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: W:\SVN repositories\Product_Content\Desktop\Tableau_Samples_2015\Supporting_Macros\Polygons.twb" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="96">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
+        <Position x="702" y="1290" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OutputConfiguration>
+            <Configuration>
+              <File MaxRecords="" FileFormat="0">temp.csv.bat</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <LineEndStyle>CRLF</LineEndStyle>
+                <Delimeter />
+                <ForceQuotes>False</ForceQuotes>
+                <HeaderRow>False</HeaderRow>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+              <MultiFile value="True" />
+              <MultiFileType>Path</MultiFileType>
+              <MultiFileField>Filename</MultiFileField>
+              <KeepField value="False" />
+            </Configuration>
+          </OutputConfiguration>
+          <InputConfiguration>
+            <Configuration />
+          </InputConfiguration>
+          <ProgramName>batchfile.bat</ProgramName>
+          <Arguments />
+          <WorkingDir />
+          <RunMinimized value="False" />
+          <RunSilent value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Run batchfile.bat</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRunCommand" />
+    </Node>
+    <Node ToolID="97">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="534" y="1290" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Filename" type="V_WString" size="64" expression="&quot;batchfile.bat&quot;" />
+            <FormulaField field="command" type="V_WString" size="10000" expression="&quot;copy &quot; + [Field_1] + &quot; TEMPDIR&quot;" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Filename="batchfile.bat"
+command="copy " + [Field_1] + " TEMPDIR"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: W:\SVN repositories\Product_Content\Desktop\Tableau_Samples_2015\Supporting_Macros\Polygons.twb" type="V_String" />
+            <Field name="Filename" size="64" source="Formula: &quot;batchfile.bat&quot;" type="V_WString" />
+            <Field name="command" size="10000" source="Formula: &quot;copy &quot; + [Field_1] + &quot; TEMPDIR&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="98">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="618" y="1290" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Filename" size="64" source="Formula: &quot;batchfile.bat&quot;" type="V_WString" />
+            <Field name="command" size="10000" source="Formula: &quot;copy &quot; + [Field_1] + &quot; TEMPDIR&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="94">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="270" y="1302" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Field_1</Field>
+          <RegExExpression value="param='(.*?)' type='bitmap'" />
+          <CaseInsensitve value="True" />
+          <Method>ParseSimple</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="True" />
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="RegExOut1" type="V_String" size="10000" />
+          </ParseComplex>
+          <Match>
+            <Field>Field_1_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Tokenize:
+param='(.*?)' type='bitmap'</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: W:\SVN repositories\Product_Content\Desktop\Tableau_Samples_2015\Supporting_Macros\Polygons.twb" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
         <Position x="69" y="549.1" width="840" height="239" />
@@ -146,6 +333,90 @@ This is a great example of how alteryx can interact with un- or semi-structured 
         </Annotation>
       </Properties>
       <ChildNodes>
+        <Node ToolID="52">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="297" y="594.1" width="179" height="168" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>We are using the block until done to allow the data source (.tde) output to occur before the tableau workbook (.twb) is created below.</Text>
+              <Font name="Segoe UI" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="3" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="90">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="522" y="666" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="FilePath" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="AlteryxKey" source="RecordID: Starting Value=1" type="Int32" />
+                <Field description="Formula: [Row-1:PolygonNumber]+1" name="PolygonNumber" source="Formula: [Row-1:PolygonNumber]+1" type="Int32" />
+                <Field name="PointOrder" source="Formula: [PointOrder]+1" type="Int32" />
+                <Field name="Longitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+                <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="59">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+            <Position x="138" y="666" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UseFileInput value="True" />
+              <Name>Input14</Name>
+              <Abbrev />
+              <ShowFieldMap value="False" />
+              <FileInput>
+                <Configuration>
+                  <Passwords />
+                  <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">.\TableauWorkbook.TestData.yxdb</File>
+                  <FormatSpecificOptions />
+                </Configuration>
+              </FileInput>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name>Input14</Name>
+              <DefaultAnnotationText>TableauWorkbook.TestData.yxdb</DefaultAnnotationText>
+              <Left value="True" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="AlteryxKey" source="RecordID: Starting Value=1" type="Int32" />
+                <Field description="Formula: [Row-1:PolygonNumber]+1" name="PolygonNumber" source="Formula: [Row-1:PolygonNumber]+1" type="Int32" />
+                <Field name="PointOrder" source="Formula: [PointOrder]+1" type="Int32" />
+                <Field name="Longitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+                <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+        </Node>
         <Node ToolID="24">
           <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
             <Position x="94" y="593.1" width="179" height="168" />
@@ -153,6 +424,97 @@ This is a great example of how alteryx can interact with un- or semi-structured 
           <Properties>
             <Configuration>
               <Text>This input represents the data being passed into the macro. This will be the data that the tableau workbook template will be updated to reference</Text>
+              <Font name="Segoe UI" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="3" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="93">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+            <Position x="330" y="666" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <When>First</When>
+              <Filter />
+              <Type>Message</Type>
+              <Priority>Normal</Priority>
+              <Transient>False</Transient>
+              <MessageExpression>"bla"</MessageExpression>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="AlteryxKey" source="RecordID: Starting Value=1" type="Int32" />
+                <Field description="Formula: [Row-1:PolygonNumber]+1" name="PolygonNumber" source="Formula: [Row-1:PolygonNumber]+1" type="Int32" />
+                <Field name="PointOrder" source="Formula: [PointOrder]+1" type="Int32" />
+                <Field name="Longitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+                <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+        </Node>
+        <Node ToolID="45">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
+            <Position x="618" y="666" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="AlteryxKey" source="RecordID: Starting Value=1" type="Int32" />
+                <Field description="Formula: [Row-1:PolygonNumber]+1" name="PolygonNumber" source="Formula: [Row-1:PolygonNumber]+1" type="Int32" />
+                <Field name="PointOrder" source="Formula: [PointOrder]+1" type="Int32" />
+                <Field name="Longitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+                <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo connection="Output2">
+              <RecordInfo>
+                <Field name="AlteryxKey" source="RecordID: Starting Value=1" type="Int32" />
+                <Field description="Formula: [Row-1:PolygonNumber]+1" name="PolygonNumber" source="Formula: [Row-1:PolygonNumber]+1" type="Int32" />
+                <Field name="PointOrder" source="Formula: [PointOrder]+1" type="Int32" />
+                <Field name="Longitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+                <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo connection="Output3">
+              <RecordInfo>
+                <Field name="AlteryxKey" source="RecordID: Starting Value=1" type="Int32" />
+                <Field description="Formula: [Row-1:PolygonNumber]+1" name="PolygonNumber" source="Formula: [Row-1:PolygonNumber]+1" type="Int32" />
+                <Field name="PointOrder" source="Formula: [PointOrder]+1" type="Int32" />
+                <Field name="Longitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+                <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlockUntilDone" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="705" y="595.1" width="179" height="165.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>Output the .tde file to a temporary space. This is the data source the workbook will reference.</Text>
               <Font name="Segoe UI" size="8.25" style="0" />
               <TextColor name="Black" />
               <FillColor name="White" />
@@ -186,49 +548,30 @@ This is a great example of how alteryx can interact with un- or semi-structured 
             </Annotation>
           </Properties>
         </Node>
-        <Node ToolID="52">
-          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-            <Position x="297" y="594.1" width="179" height="168" />
+        <Node ToolID="34">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="772" y="666" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <Text>We are using the block until done to allow the data source (.tde) output to occur before the tableau workbook (.twb) is created below.</Text>
-              <Font name="Segoe UI" size="8.25" style="0" />
-              <TextColor name="Black" />
-              <FillColor name="White" />
-              <Shape shape="0" />
-              <Justification Justification="3" />
+              <File FileFormat="42" MaxRecords="">.\tdefil.tde</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <OutputOption>Overwrite</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
-              <DefaultAnnotationText />
+              <DefaultAnnotationText>tdefil.tde</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
           </Properties>
-        </Node>
-        <Node ToolID="27">
-          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-            <Position x="705" y="595.1" width="179" height="165.9999" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <Text>Output the .tde file to a temporary space. This is the data source the workbook will reference.</Text>
-              <Font name="Segoe UI" size="8.25" style="0" />
-              <TextColor name="Black" />
-              <FillColor name="White" />
-              <Shape shape="0" />
-              <Justification Justification="3" />
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
         </Node>
         <Node ToolID="62">
           <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-            <Position x="330" y="666" />
+            <Position x="426" y="666" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -271,137 +614,11 @@ EndIf</Expression>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
         </Node>
-        <Node ToolID="34">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-            <Position x="772" y="666" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <File FileFormat="42" MaxRecords="">.\tdefil.tde</File>
-              <Passwords />
-              <FormatSpecificOptions>
-                <OutputOption>Overwrite</OutputOption>
-              </FormatSpecificOptions>
-              <MultiFile value="False" />
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText>tdefil.tde</DefaultAnnotationText>
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-        </Node>
-        <Node ToolID="45">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
-            <Position x="556" y="666" />
-          </GuiSettings>
-          <Properties>
-            <Configuration />
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-            <MetaInfo connection="Output">
-              <RecordInfo>
-                <Field name="AlteryxKey" source="RecordID: Starting Value=1" type="Int32" />
-                <Field description="Formula: [Row-1:PolygonNumber]+1" name="PolygonNumber" source="Formula: [Row-1:PolygonNumber]+1" type="Int32" />
-                <Field name="PointOrder" source="Formula: [PointOrder]+1" type="Int32" />
-                <Field name="Longitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
-                <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
-              </RecordInfo>
-            </MetaInfo>
-            <MetaInfo connection="Output2">
-              <RecordInfo>
-                <Field name="AlteryxKey" source="RecordID: Starting Value=1" type="Int32" />
-                <Field description="Formula: [Row-1:PolygonNumber]+1" name="PolygonNumber" source="Formula: [Row-1:PolygonNumber]+1" type="Int32" />
-                <Field name="PointOrder" source="Formula: [PointOrder]+1" type="Int32" />
-                <Field name="Longitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
-                <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
-              </RecordInfo>
-            </MetaInfo>
-            <MetaInfo connection="Output3">
-              <RecordInfo>
-                <Field name="AlteryxKey" source="RecordID: Starting Value=1" type="Int32" />
-                <Field description="Formula: [Row-1:PolygonNumber]+1" name="PolygonNumber" source="Formula: [Row-1:PolygonNumber]+1" type="Int32" />
-                <Field name="PointOrder" source="Formula: [PointOrder]+1" type="Int32" />
-                <Field name="Longitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
-                <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
-              </RecordInfo>
-            </MetaInfo>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlockUntilDone" />
-        </Node>
-        <Node ToolID="59">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-            <Position x="140" y="666" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <UseFileInput value="True" />
-              <Name>Input14</Name>
-              <Abbrev />
-              <ShowFieldMap value="False" />
-              <FileInput>
-                <Configuration>
-                  <Passwords />
-                  <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">.\TableauWorkbook.TestData.yxdb</File>
-                  <FormatSpecificOptions />
-                </Configuration>
-              </FileInput>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name>Input14</Name>
-              <DefaultAnnotationText>TableauWorkbook.TestData.yxdb</DefaultAnnotationText>
-              <Left value="True" />
-            </Annotation>
-            <MetaInfo connection="Output">
-              <RecordInfo>
-                <Field name="AlteryxKey" source="RecordID: Starting Value=1" type="Int32" />
-                <Field description="Formula: [Row-1:PolygonNumber]+1" name="PolygonNumber" source="Formula: [Row-1:PolygonNumber]+1" type="Int32" />
-                <Field name="PointOrder" source="Formula: [PointOrder]+1" type="Int32" />
-                <Field name="Longitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
-                <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
-              </RecordInfo>
-            </MetaInfo>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
-        </Node>
-        <Node ToolID="90">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="414" y="666" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <OrderChanged value="False" />
-              <SelectFields>
-                <SelectField field="FilePath" selected="False" />
-                <SelectField field="*Unknown" selected="True" />
-              </SelectFields>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-            <MetaInfo connection="Output">
-              <RecordInfo>
-                <Field name="AlteryxKey" source="RecordID: Starting Value=1" type="Int32" />
-                <Field description="Formula: [Row-1:PolygonNumber]+1" name="PolygonNumber" source="Formula: [Row-1:PolygonNumber]+1" type="Int32" />
-                <Field name="PointOrder" source="Formula: [PointOrder]+1" type="Int32" />
-                <Field name="Longitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
-                <Field name="Latitude" source="SpatialInfo: CentroidXY Source=Split_SpatialObj" type="Double" />
-              </RecordInfo>
-            </MetaInfo>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-        </Node>
       </ChildNodes>
     </Node>
     <Node ToolID="60">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="54" y="54" width="289" height="308" />
+        <Position x="54" y="54" width="324" height="312" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -498,6 +715,19 @@ EndIf</Expression>
         <Node ToolID="88">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
             <Position x="79" y="98" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="101">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+            <Position x="294" y="282" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -622,9 +852,6 @@ EndIf</Expression>
               <DefaultAnnotationText>Run powershell.exe</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRunCommand" />
         </Node>
@@ -696,17 +923,17 @@ EndIf</Expression>
             </Annotation>
             <MetaInfo connection="Output">
               <RecordInfo>
-                <Field name="Field_1" size="10000" source="Formula: replace([Field_1],&quot;{FilePath}&quot;,ReverseString(&quot;&quot;) + &quot;temp.tde&quot;)" type="V_String" />
+                <Field name="Field_1" size="10000" source="Formula: REGEX_Replace([Field_1], &quot;(.*?param=')(.*?)(' type='bitmap'.*)&quot;,&quot;$1&quot;+[FILENAME]+&quot;$3&quot;)" type="V_String" />
               </RecordInfo>
             </MetaInfo>
             <MetaInfo connection="Output2">
               <RecordInfo>
-                <Field name="Field_1" size="10000" source="Formula: replace([Field_1],&quot;{FilePath}&quot;,ReverseString(&quot;&quot;) + &quot;temp.tde&quot;)" type="V_String" />
+                <Field name="Field_1" size="10000" source="Formula: REGEX_Replace([Field_1], &quot;(.*?param=')(.*?)(' type='bitmap'.*)&quot;,&quot;$1&quot;+[FILENAME]+&quot;$3&quot;)" type="V_String" />
               </RecordInfo>
             </MetaInfo>
             <MetaInfo connection="Output3">
               <RecordInfo>
-                <Field name="Field_1" size="10000" source="Formula: replace([Field_1],&quot;{FilePath}&quot;,ReverseString(&quot;&quot;) + &quot;temp.tde&quot;)" type="V_String" />
+                <Field name="Field_1" size="10000" source="Formula: REGEX_Replace([Field_1], &quot;(.*?param=')(.*?)(' type='bitmap'.*)&quot;,&quot;$1&quot;+[FILENAME]+&quot;$3&quot;)" type="V_String" />
               </RecordInfo>
             </MetaInfo>
           </Properties>
@@ -807,7 +1034,7 @@ EndIf</Expression>
             </Annotation>
             <MetaInfo connection="Output">
               <RecordInfo>
-                <Field name="Field_1" size="10000" source="Formula: replace([Field_1],&quot;{FilePath}&quot;,ReverseString(&quot;&quot;) + &quot;temp.tde&quot;)" type="V_String" />
+                <Field name="Field_1" size="10000" source="Formula: REGEX_Replace([Field_1], &quot;(.*?param=')(.*?)(' type='bitmap'.*)&quot;,&quot;$1&quot;+[FILENAME]+&quot;$3&quot;)" type="V_String" />
               </RecordInfo>
             </MetaInfo>
           </Properties>
@@ -882,13 +1109,13 @@ One of the parameters (questions) for this macro is to point to the workbook tem
           <Properties>
             <Configuration>
               <FormulaFields>
-                <FormulaField field="Field_1" type="V_String" size="10000" expression="regex_replace([Field_1],&quot;(.*dbname=').*?('.*)&quot;,&quot;$1&quot;+&quot;{FilePath}&quot;+&quot;$2&quot;)" />
+                <FormulaField field="Field_1" type="V_String" size="10000" expression="regex_replace([Field_1],&quot;(.*dbname=').*?{FileName}.*?('.*)&quot;,&quot;$1&quot;+&quot;{FilePath}&quot;+&quot;$2&quot;)" />
                 <FormulaField field="Field_1" type="V_String" size="10000" expression="replace([Field_1],&quot;{FilePath}&quot;,ReverseString(&quot;&quot;) + &quot;temp.tde&quot;)" />
               </FormulaFields>
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
-              <DefaultAnnotationText>Field_1=regex_replace([Field_1],"(.*dbname=').*?('.*)","$1"+"...
+              <DefaultAnnotationText>Field_1=regex_replace([Field_1],"(.*dbname=').*?{FileName}.*?...
 Field_1=replace([Field_1],"{FilePath}",ReverseString("") + "t...</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
@@ -928,6 +1155,66 @@ Field_1=replace([Field_1],"{FilePath}",ReverseString("") + "t...</DefaultAnnotat
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
         </Node>
+        <Node ToolID="99">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="666" y="1074" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="FILENAME" type="V_WString" size="10000" expression="regex_replace([Field_1],&quot;.*?param='(.*?)' type='bitmap'.*&quot;,&quot;$1&quot;)" />
+                <FormulaField field="FILENAME" type="V_WString" size="10000" expression="ReverseString([FILENAME])" />
+                <FormulaField field="FILENAME" type="V_WString" size="10000" expression="regex_replace([FILENAME], &quot;(.*?)(\\.*)&quot;,&quot;$1&quot;)" />
+                <FormulaField field="FILENAME" type="V_WString" size="10000" expression="ReverseString([FILENAME])" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>FILENAME=regex_replace([Field_1],".*?param='(.*?)' type='bitm...
+FILENAME=ReverseString([FILENAME])
+FILENAME=regex_replace([FILENAME], "(.*?)(\\.*)","$1")
+...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Field_1" size="10000" source="Formula: replace([Field_1],&quot;{FilePath}&quot;,ReverseString(&quot;&quot;) + &quot;temp.tde&quot;)" type="V_String" />
+                <Field name="TDEFILE" size="64" source="Formula: ReverseString(&quot;TDEFILEPATH&quot;)" type="V_WString" />
+                <Field description="TextToColumns: Parsed from TDEFILE" name="TDEFILE1" size="64" source="TextToColumns: Parsed from TDEFILE" type="V_WString" />
+                <Field description="TextToColumns: Parsed from TDEFILE" name="TDEFILE2" size="64" source="TextToColumns: Parsed from TDEFILE" type="V_WString" />
+                <Field name="FILENAME" size="10000" source="Formula: ReverseString([FILENAME])" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="100">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="774" y="1074" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Field_1" type="V_String" size="10000" expression="REGEX_Replace([Field_1], &quot;(.*?param=')(.*?)(' type='bitmap'.*)&quot;,&quot;$1&quot;+[FILENAME]+&quot;$3&quot;)" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Field_1=REGEX_Replace([Field_1], "(.*?param=')(.*?)(' type='b...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Field_1" size="10000" source="Formula: REGEX_Replace([Field_1], &quot;(.*?param=')(.*?)(' type='bitmap'.*)&quot;,&quot;$1&quot;+[FILENAME]+&quot;$3&quot;)" type="V_String" />
+                <Field name="TDEFILE" size="64" source="Formula: ReverseString(&quot;TDEFILEPATH&quot;)" type="V_WString" />
+                <Field description="TextToColumns: Parsed from TDEFILE" name="TDEFILE1" size="64" source="TextToColumns: Parsed from TDEFILE" type="V_WString" />
+                <Field description="TextToColumns: Parsed from TDEFILE" name="TDEFILE2" size="64" source="TextToColumns: Parsed from TDEFILE" type="V_WString" />
+                <Field name="FILENAME" size="10000" source="Formula: ReverseString([FILENAME])" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
       </ChildNodes>
     </Node>
   </Nodes>
@@ -952,9 +1239,49 @@ Field_1=replace([Field_1],"{FilePath}",ReverseString("") + "t...</DefaultAnnotat
       <Origin ToolID="83" Connection="Output2" />
       <Destination ToolID="84" Connection="Input" />
     </Connection>
+    <Connection name="#1">
+      <Origin ToolID="91" Connection="Question" />
+      <Destination ToolID="92" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="92" Connection="Action" />
+      <Destination ToolID="72" Connection="Action" />
+    </Connection>
     <Connection>
-      <Origin ToolID="62" Connection="Output" />
-      <Destination ToolID="90" Connection="Input" />
+      <Origin ToolID="82" Connection="Output" />
+      <Destination ToolID="72" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="95" Connection="True" />
+      <Destination ToolID="97" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="101" Connection="Action" />
+      <Destination ToolID="97" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="97" Connection="Output" />
+      <Destination ToolID="98" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="98" Connection="Output" />
+      <Destination ToolID="96" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="94" Connection="Output" />
+      <Destination ToolID="95" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="90" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Output" />
+      <Destination ToolID="93" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="93" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="45" Connection="Output" />
@@ -969,12 +1296,8 @@ Field_1=replace([Field_1],"{FilePath}",ReverseString("") + "t...</DefaultAnnotat
       <Destination ToolID="77" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="59" Connection="Output" />
-      <Destination ToolID="62" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="90" Connection="Output" />
-      <Destination ToolID="45" Connection="Input" />
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="90" Connection="Input" />
     </Connection>
     <Connection name="Please navigate to the tableau workbook template (.twb)" Wireless="True">
       <Origin ToolID="56" Connection="Question" />
@@ -1012,13 +1335,13 @@ Field_1=replace([Field_1],"{FilePath}",ReverseString("") + "t...</DefaultAnnotat
       <Origin ToolID="88" Connection="Question" />
       <Destination ToolID="65" Connection="Question" />
     </Connection>
+    <Connection name="#1">
+      <Origin ToolID="88" Connection="Question" />
+      <Destination ToolID="101" Connection="Question" />
+    </Connection>
     <Connection>
       <Origin ToolID="80" Connection="Output" />
       <Destination ToolID="82" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="82" Connection="Output" />
-      <Destination ToolID="72" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="77" Connection="Output" />
@@ -1033,7 +1356,19 @@ Field_1=replace([Field_1],"{FilePath}",ReverseString("") + "t...</DefaultAnnotat
       <Destination ToolID="83" Connection="Input" />
     </Connection>
     <Connection>
+      <Origin ToolID="74" Connection="Output" />
+      <Destination ToolID="94" Connection="Input" />
+    </Connection>
+    <Connection>
       <Origin ToolID="72" Connection="Output" />
+      <Destination ToolID="99" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="99" Connection="Output" />
+      <Destination ToolID="100" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="100" Connection="Output" />
       <Destination ToolID="75" Connection="Input" />
     </Connection>
   </Connections>
@@ -1075,6 +1410,12 @@ Field_1=replace([Field_1],"{FilePath}",ReverseString("") + "t...</DefaultAnnotat
       <Constant>
         <Namespace>Question</Namespace>
         <Name>File Browse (88)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Text Box (91)</Name>
         <Value />
         <IsNumeric value="False" />
       </Constant>
@@ -1158,6 +1499,24 @@ Field_1=replace([Field_1],"{FilePath}",ReverseString("") + "t...</DefaultAnnotat
               <ReplaceText>OutputPath</ReplaceText>
               <Destination>84/Arguments</Destination>
             </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="92" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>{FileName}</ReplaceText>
+              <Destination>72/FormulaFields/FormulaField[@field='Field_1']/@expression</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValueFormula</Type>
+              <Description />
+              <ToolId value="101" />
+              <Expression>Replace([Destination], "TEMPDIR", [#1]+"\temp")</Expression>
+              <Destination>97/FormulaFields/FormulaField[@field='command']/@expression</Destination>
+              <Mode>Expression</Mode>
+            </Action>
           </True>
         </NoCondition>
       </Actions>
@@ -1206,6 +1565,16 @@ Field_1=replace([Field_1],"{FilePath}",ReverseString("") + "t...</DefaultAnnotat
               <DW2_SpatialOnly value="False" />
               <DW2_FieldMap value="False" />
               <InputToolId value="-1" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Filename</Description>
+              <Name>Text Box (91)</Name>
+              <ToolId value="91" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
             </Question>
           </Questions>
         </Question>

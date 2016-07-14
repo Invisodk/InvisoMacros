@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="90" y="258" />
+        <Position x="102" y="378" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -46,7 +46,7 @@ Table=Select * From SalesData</AnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="354" y="258" />
+        <Position x="258" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -70,38 +70,9 @@ Table=Select * From SalesData</AnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
     </Node>
-    <Node ToolID="8">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
-        <Position x="510" y="342" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="groupingField" size="9" source="TextInput:" type="String" />
-          </RecordInfo>
-        </MetaInfo>
-        <MetaInfo connection="Output2">
-          <RecordInfo>
-            <Field name="groupingField" size="9" source="TextInput:" type="String" />
-          </RecordInfo>
-        </MetaInfo>
-        <MetaInfo connection="Output3">
-          <RecordInfo>
-            <Field name="groupingField" size="9" source="TextInput:" type="String" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlockUntilDone" />
-    </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
-        <Position x="90" y="390" />
+        <Position x="102" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -146,9 +117,6 @@ Table=Select * From SalesData</AnnotationText>
           <DefaultAnnotationText>Run cmd</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="1" size="254" source="File: Z:\Makroer\InvisoMacros\Macros\AssistingMacros\dummy.csv" type="V_String" />
@@ -159,7 +127,7 @@ Table=Select * From SalesData</AnnotationText>
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-        <Position x="354" y="342" />
+        <Position x="258" y="510" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -200,74 +168,9 @@ Table=Select * From SalesData</AnnotationText>
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="20">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FolderBrowse.FolderBrowse">
-        <Position x="342" y="66" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="21">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
-        <Position x="54" y="66" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="22">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="306" y="162" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="23">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="414" y="162" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="24">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="54" y="162" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
     <Node ToolID="25">
       <GuiSettings>
-        <Position x="618" y="282" />
+        <Position x="546" y="402" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -276,6 +179,7 @@ Data=groupingField
 ]]></Value>
           <Value name="File Browse (10)">TEMPLATE</Value>
           <Value name="Folder Browse (14)">OUTPUTLOCATION</Value>
+          <Value name="Text Box (15)">3.tde</Value>
           <Value name="ControlParams"><![CDATA[Control Parameter (3)=groupingField
 ]]></Value>
         </Configuration>
@@ -284,12 +188,185 @@ Data=groupingField
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings Macro="AssistingMacros\TWBOutputMacro.yxmcbatch" />
     </Node>
-    <Node ToolID="26">
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
+        <Position x="546" y="510" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OutputConfiguration>
+            <Configuration>
+              <File MaxRecords="" FileFormat="0">.\AssistingMacros\temp.csv</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <LineEndStyle>CRLF</LineEndStyle>
+                <Delimeter>,</Delimeter>
+                <ForceQuotes>False</ForceQuotes>
+                <HeaderRow>True</HeaderRow>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+          </OutputConfiguration>
+          <InputConfiguration>
+            <Configuration />
+          </InputConfiguration>
+          <ProgramName>cmd</ProgramName>
+          <Arguments>/c rmdir "TEMPDIR\temp"</Arguments>
+          <WorkingDir />
+          <RunMinimized value="False" />
+          <RunSilent value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Run cmd</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRunCommand" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
+        <Position x="390" y="510" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="groupingField" size="9" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Output2">
+          <RecordInfo>
+            <Field name="groupingField" size="9" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Output3">
+          <RecordInfo>
+            <Field name="groupingField" size="9" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlockUntilDone" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FolderBrowse.FolderBrowse">
+        <Position x="198" y="66" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="198" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="41">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="762" y="66" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="762" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="54" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="342" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
+        <Position x="558" y="66" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="558" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="47">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.DropDown">
-        <Position x="582" y="54" width="59" height="59" />
+        <Position x="1074" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -300,9 +377,9 @@ Data=groupingField
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="29">
+    <Node ToolID="48">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="558" y="150" width="59" height="59" />
+        <Position x="1242" y="174" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -313,9 +390,35 @@ Data=groupingField
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="30">
+    <Node ToolID="49">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="642" y="150" width="59" height="59" />
+        <Position x="954" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="1098" y="174" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="1386" y="174" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -330,71 +433,107 @@ Data=groupingField
   <Connections>
     <Connection>
       <Origin ToolID="19" Connection="Output" />
-      <Destination ToolID="6" Connection="Input" />
-    </Connection>
-    <Connection name="#2">
-      <Origin ToolID="29" Connection="Action" />
-      <Destination ToolID="6" Connection="Action" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="19" Connection="Output" />
       <Destination ToolID="17" Connection="Targets" />
     </Connection>
     <Connection>
       <Origin ToolID="7" Connection="Output" />
       <Destination ToolID="17" Connection="Source" />
     </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="48" Connection="Action" />
+      <Destination ToolID="6" Connection="Action" />
+    </Connection>
+    <Connection name="#3" Wireless="True">
+      <Origin ToolID="51" Connection="Action" />
+      <Destination ToolID="6" Connection="Action" />
+    </Connection>
     <Connection Wireless="True">
       <Origin ToolID="19" Connection="Question" />
-      <Destination ToolID="26" Connection="Question Input" />
+      <Destination ToolID="47" Connection="Question Input" />
     </Connection>
     <Connection>
       <Origin ToolID="6" Connection="Output" />
       <Destination ToolID="25" Connection="Control" />
     </Connection>
     <Connection>
-      <Origin ToolID="8" Connection="Output" />
+      <Origin ToolID="38" Connection="Output" />
       <Destination ToolID="25" Connection="Data" />
     </Connection>
-    <Connection name="#1">
-      <Origin ToolID="23" Connection="Action" />
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="40" Connection="Action" />
       <Destination ToolID="25" Connection="Action" />
     </Connection>
-    <Connection name="#2">
-      <Origin ToolID="24" Connection="Action" />
+    <Connection name="#3" Wireless="True">
+      <Origin ToolID="42" Connection="Action" />
       <Destination ToolID="25" Connection="Action" />
     </Connection>
-    <Connection name="#4">
-      <Origin ToolID="30" Connection="Action" />
+    <Connection name="#4" Wireless="True">
+      <Origin ToolID="46" Connection="Action" />
+      <Destination ToolID="25" Connection="Action" />
+    </Connection>
+    <Connection name="#5" Wireless="True">
+      <Origin ToolID="49" Connection="Action" />
+      <Destination ToolID="25" Connection="Action" />
+    </Connection>
+    <Connection name="#6" Wireless="True">
+      <Origin ToolID="50" Connection="Action" />
       <Destination ToolID="25" Connection="Action" />
     </Connection>
     <Connection>
       <Origin ToolID="17" Connection="Output" />
-      <Destination ToolID="8" Connection="Input" />
+      <Destination ToolID="38" Connection="Input" />
     </Connection>
-    <Connection name="#1" Wireless="True">
-      <Origin ToolID="20" Connection="Question" />
-      <Destination ToolID="22" Connection="Question" />
-    </Connection>
-    <Connection name="#1" Wireless="True">
-      <Origin ToolID="20" Connection="Question" />
-      <Destination ToolID="23" Connection="Question" />
-    </Connection>
-    <Connection name="#1" Wireless="True">
-      <Origin ToolID="21" Connection="Question" />
-      <Destination ToolID="24" Connection="Question" />
+    <Connection>
+      <Origin ToolID="38" Connection="Output2" />
+      <Destination ToolID="33" Connection="Input" />
     </Connection>
     <Connection name="#2" Wireless="True">
-      <Origin ToolID="22" Connection="Action" />
+      <Origin ToolID="44" Connection="Action" />
+      <Destination ToolID="33" Connection="Action" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="39" Connection="Question" />
+      <Destination ToolID="40" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="39" Connection="Question" />
+      <Destination ToolID="43" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="39" Connection="Question" />
+      <Destination ToolID="44" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="41" Connection="Question" />
+      <Destination ToolID="42" Connection="Question" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="43" Connection="Action" />
       <Destination ToolID="7" Connection="Action" />
     </Connection>
-    <Connection name="#1">
-      <Origin ToolID="26" Connection="Question" />
-      <Destination ToolID="29" Connection="Question" />
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="45" Connection="Question" />
+      <Destination ToolID="46" Connection="Question" />
     </Connection>
-    <Connection name="#1">
-      <Origin ToolID="26" Connection="Question" />
-      <Destination ToolID="30" Connection="Question" />
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="47" Connection="Question" />
+      <Destination ToolID="48" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="47" Connection="Question" />
+      <Destination ToolID="49" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="47" Connection="Question" />
+      <Destination ToolID="50" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="47" Connection="Question" />
+      <Destination ToolID="51" Connection="Question" />
     </Connection>
   </Connections>
   <Properties>
@@ -422,19 +561,25 @@ Data=groupingField
       </Constant>
       <Constant>
         <Namespace>Question</Namespace>
-        <Name>Folder Browse (20)</Name>
+        <Name>Folder Browse (39)</Name>
         <Value />
         <IsNumeric value="False" />
       </Constant>
       <Constant>
         <Namespace>Question</Namespace>
-        <Name>File Browse (21)</Name>
+        <Name>Text Box (41)</Name>
         <Value />
         <IsNumeric value="False" />
       </Constant>
       <Constant>
         <Namespace>Question</Namespace>
-        <Name>Drop Down (26)</Name>
+        <Name>File Browse (45)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Drop Down (47)</Name>
         <Value />
         <IsNumeric value="False" />
       </Constant>
@@ -465,7 +610,25 @@ Data=groupingField
             <Action>
               <Type>UpdateValue</Type>
               <Description />
-              <ToolId value="22" />
+              <ToolId value="40" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>25/Value[@name='Folder Browse (14)']</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="42" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>25/Value[@name='Text Box (15)']</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="43" />
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="True" />
@@ -475,36 +638,58 @@ Data=groupingField
             <Action>
               <Type>UpdateValue</Type>
               <Description />
-              <ToolId value="23" />
+              <ToolId value="44" />
               <Mode>Simple</Mode>
               <Variable />
-              <Replace value="False" />
-              <Destination>25/Value[@name='Folder Browse (14)']</Destination>
+              <Replace value="True" />
+              <ReplaceText>TEMPDIR</ReplaceText>
+              <Destination>33/Arguments</Destination>
             </Action>
             <Action>
               <Type>UpdateValue</Type>
               <Description />
-              <ToolId value="24" />
+              <ToolId value="46" />
               <Mode>Simple</Mode>
               <Variable />
               <Replace value="False" />
               <Destination>25/Value[@name='File Browse (10)']</Destination>
             </Action>
             <Action>
-              <Type>UpdateRawXml</Type>
+              <Type>UpdateValue</Type>
               <Description />
-              <ToolId value="29" />
-              <Expression>Replace([Destination], "groupingField", [#1])</Expression>
-              <Destination>6</Destination>
-              <OuterXml value="False" />
+              <ToolId value="48" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>6/SummarizeFields/SummarizeField/@field</Destination>
             </Action>
             <Action>
               <Type>UpdateRawXml</Type>
               <Description />
-              <ToolId value="30" />
+              <ToolId value="49" />
               <Expression>Replace([Destination], "groupingField", [#1])</Expression>
-              <Destination>25</Destination>
+              <Destination>25/Value[@name='BatchMacroGroupBy']</Destination>
               <OuterXml value="False" />
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="50" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText><![CDATA[groupingField
+]]></ReplaceText>
+              <Destination>25/Value[@name='ControlParams']</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="51" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>6/SummarizeFields/SummarizeField/@rename</Destination>
             </Action>
           </True>
         </NoCondition>
@@ -525,14 +710,24 @@ Data=groupingField
             <Question>
               <Type>FolderBrowse</Type>
               <Description>Please choose the Output folder. Make sure the folder is empty.</Description>
-              <Name>Folder Browse (20)</Name>
-              <ToolId value="20" />
+              <Name>Folder Browse (39)</Name>
+              <ToolId value="39" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Filename of the datasource you want to replace - leave blank to replace all datasources</Description>
+              <Name>Text Box (41)</Name>
+              <ToolId value="41" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
             </Question>
             <Question>
               <Type>FileBrowse</Type>
               <Description>Please choose the Template Tableau workbook (.twb)</Description>
-              <Name>File Browse (21)</Name>
-              <ToolId value="21" />
+              <Name>File Browse (45)</Name>
+              <ToolId value="45" />
               <SaveAs value="False" />
               <Mode>FileSpec</Mode>
               <FileSpec>Tableau files (*.twb)|*.twb</FileSpec>
@@ -540,8 +735,8 @@ Data=groupingField
             <Question>
               <Type>ListBox</Type>
               <Description>Please choose the field you will use to divide the data</Description>
-              <Name>Drop Down (26)</Name>
-              <ToolId value="26" />
+              <Name>Drop Down (47)</Name>
+              <ToolId value="47" />
               <Multiple value="False" />
               <Default />
               <Mode>MacroField</Mode>
