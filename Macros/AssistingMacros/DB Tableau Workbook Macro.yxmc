@@ -197,7 +197,7 @@ This is a great example of how alteryx can interact with un- or semi-structured 
               <FormatSpecificOptions>
                 <LineEndStyle>CRLF</LineEndStyle>
                 <Delimeter />
-                <ForceQuotes>False</ForceQuotes>
+                <ForceQuotes>Never</ForceQuotes>
                 <HeaderRow>False</HeaderRow>
                 <CodePage>28591</CodePage>
               </FormatSpecificOptions>
@@ -221,6 +221,9 @@ This is a great example of how alteryx can interact with un- or semi-structured 
           <DefaultAnnotationText>Run batchfile.bat</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRunCommand" />
     </Node>
@@ -232,20 +235,20 @@ This is a great example of how alteryx can interact with un- or semi-structured 
         <Configuration>
           <FormulaFields>
             <FormulaField field="Filename" type="V_WString" size="64" expression="&quot;batchfile.bat&quot;" />
-            <FormulaField field="command" type="V_WString" size="10000" expression="&quot;copy &quot; + [Field_1] + &quot; TEMPDIR&quot;" />
+            <FormulaField field="command" type="V_WString" size="10000" expression="'copy &quot;' + [Field_1] + '&quot; &quot;TEMPDIR&quot;'" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText>Filename="batchfile.bat"
-command="copy " + [Field_1] + " TEMPDIR"</DefaultAnnotationText>
+command='copy "' + [Field_1] + '" "TEMPDIR"'</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="10000" source="File: W:\SVN repositories\Product_Content\Desktop\Tableau_Samples_2015\Supporting_Macros\Polygons.twb" type="V_String" />
             <Field name="Filename" size="64" source="Formula: &quot;batchfile.bat&quot;" type="V_WString" />
-            <Field name="command" size="10000" source="Formula: &quot;copy &quot; + [Field_1] + &quot; TEMPDIR&quot;" type="V_WString" />
+            <Field name="command" size="10000" source="Formula: 'copy &quot;' + [Field_1] + '&quot; &quot;TEMPDIR&quot;'" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -271,7 +274,7 @@ command="copy " + [Field_1] + " TEMPDIR"</DefaultAnnotationText>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Filename" size="64" source="Formula: &quot;batchfile.bat&quot;" type="V_WString" />
-            <Field name="command" size="10000" source="Formula: &quot;copy &quot; + [Field_1] + &quot; TEMPDIR&quot;" type="V_WString" />
+            <Field name="command" size="10000" source="Formula: 'copy &quot;' + [Field_1] + '&quot; &quot;TEMPDIR&quot;'" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -1603,8 +1606,8 @@ FILENAME=regex_replace([FILENAME], "(.*?)(\\.*)","$1")
       <Wiz_CustomGraphic value="False" />
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
-        <Tool ToolId="34" Selected="True" />
         <Tool ToolId="59" Selected="True" />
+        <Tool ToolId="34" Selected="True" />
         <Tool ToolId="73" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
