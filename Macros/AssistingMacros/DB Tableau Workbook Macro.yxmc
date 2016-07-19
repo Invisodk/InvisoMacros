@@ -186,7 +186,7 @@ This is a great example of how alteryx can interact with un- or semi-structured 
     </Node>
     <Node ToolID="96">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
-        <Position x="702" y="1290" />
+        <Position x="894" y="1290" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -221,9 +221,6 @@ This is a great example of how alteryx can interact with un- or semi-structured 
           <DefaultAnnotationText>Run batchfile.bat</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRunCommand" />
     </Node>
@@ -317,6 +314,31 @@ param='(.*?)' type='bitmap'</DefaultAnnotationText>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="103">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="750" y="1290" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Filename" size="64" source="(Multiple Sources)" type="V_WString" />
+            <Field name="command" size="10000" source="(Multiple Sources)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
@@ -1220,6 +1242,38 @@ FILENAME=regex_replace([FILENAME], "(.*?)(\\.*)","$1")
         </Node>
       </ChildNodes>
     </Node>
+    <Node ToolID="104">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="618" y="1362" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="Filename" />
+            <Field name="command" />
+          </Fields>
+          <Data>
+            <r>
+              <c>batchfile.bat</c>
+              <c>echo 1</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Filename" size="13" source="TextInput:" type="String" />
+            <Field name="command" size="6" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection name="#2">
@@ -1266,13 +1320,21 @@ FILENAME=regex_replace([FILENAME], "(.*?)(\\.*)","$1")
       <Origin ToolID="97" Connection="Output" />
       <Destination ToolID="98" Connection="Input" />
     </Connection>
-    <Connection>
+    <Connection name="#1">
       <Origin ToolID="98" Connection="Output" />
-      <Destination ToolID="96" Connection="Input" />
+      <Destination ToolID="103" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="104" Connection="Output" />
+      <Destination ToolID="103" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="94" Connection="Output" />
       <Destination ToolID="95" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="103" Connection="Output" />
+      <Destination ToolID="96" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="90" Connection="Output" />
