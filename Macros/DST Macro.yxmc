@@ -708,9 +708,6 @@ table=[VALUE]</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
     </Node>
     <Node ToolID="276">
@@ -1527,7 +1524,7 @@ ELSE "FALSE" ENDIF</Expression>
               <Filter />
               <Filter_ShowFullParentage value="False" />
               <SingleSelect value="True" />
-              <Height_NumLines value="100" />
+              <Height_NumLines value="25" />
             </Question>
             <Question>
               <Type>Label</Type>
