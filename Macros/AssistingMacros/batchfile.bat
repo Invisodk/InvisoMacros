@@ -1,0 +1,7 @@
+copy "Z:\Projekter\KÃ¸benhavns Kommune\KÃ¸benhavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\Image\KK Logo.png" "Z:\Projekter\Københavns Kommune\Københavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\TWBXOutput\temp"
+copy "Z:\Projekter\KÃ¸benhavns Kommune\KÃ¸benhavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\Image\KK Logo.png" "Z:\Projekter\Københavns Kommune\Københavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\TWBXOutput\temp"
+copy "Z:\Projekter\KÃ¸benhavns Kommune\KÃ¸benhavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\Image\KK Logo.png" "Z:\Projekter\Københavns Kommune\Københavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\TWBXOutput\temp"
+copy "Z:\Projekter\KÃ¸benhavns Kommune\KÃ¸benhavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\Image\KK Logo.png" "Z:\Projekter\Københavns Kommune\Københavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\TWBXOutput\temp"
+copy "Z:\Projekter\KÃ¸benhavns Kommune\KÃ¸benhavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\Image\KK Logo.png" "Z:\Projekter\Københavns Kommune\Københavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\TWBXOutput\temp"
+copy "Z:\Projekter\KÃ¸benhavns Kommune\KÃ¸benhavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\Image\KK Logo.png" "Z:\Projekter\Københavns Kommune\Københavns Kommune - Sagsbehandling\KFF - Betaling og kontrol\Tableau\TWBXOutput\temp"
+echo 1
