@@ -6,3 +6,4 @@ Macros/temp.yxdb
 *.bak
 Macros/TableauTWBX.bak
 *.bak
+*.DS_Store
