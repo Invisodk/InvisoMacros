@@ -1,8 +1,4 @@
-*.bak
-*.bak
 Macros/temp.yxdb
 Macros/temp.yxdb
-*.bak
-*.bak
-Macros/TableauTWBX.bak
+*.DS_Store
 *.bak
