@@ -1,0 +1,1746 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.GenerateRows.GenerateRows">
+        <Position x="570" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name />
+          <CreateField_Name>New_Date</CreateField_Name>
+          <CreateField_Type>Date</CreateField_Type>
+          <CreateField_Size>10</CreateField_Size>
+          <Expression_Init>[Startdate]</Expression_Init>
+          <Expression_Cond>New_Date &lt;= [Enddate]</Expression_Cond>
+          <Expression_Loop>DateTimeAdd([New_Date],1,'days')</Expression_Loop>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Creates new rows between "Iincoming Date" and "Outgoing Date" in order to find weekend-days</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxGenerateRows" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="690" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Weekday" type="V_WString" size="64" expression="DateTimeFormat([New_Date],'%A')" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Creates variable called "Weekday"</AnnotationText>
+          <DefaultAnnotationText>Weekday=DateTimeFormat([New_Date],'%A')</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="882" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Weekday] NOT IN ('Saturday', 'Sunday')</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Deselects weekend-days</AnnotationText>
+          <DefaultAnnotationText>[Weekday] NOT IN ('Saturday', 'Sunday')</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="114" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Input File with Incoming Dates and Outgoing Dates</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="Startdate" />
+                <Field name="Enddate" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>2010-10-01</c>
+                  <c>2012-10-01</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1458" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="870" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">.\AssistingMacros\Business_All holidays (generic).yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Business_All holidays (generic).yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Holiday" size="10" source="TextInput:" type="String" />
+            <Field name="Date" source="File: Z:\Makroer\InvisoMacros\Macros\AssistingMacros\Business_All holidays (generic).yxdb" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="258" y="786" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>Country</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>DK</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Country] = "DK"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Date" source="(Multiple Sources)" type="DateTime" />
+            <Field name="Holiday" size="255" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Country" size="64" source="Formula: (Multiple Sources)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Date" source="(Multiple Sources)" type="DateTime" />
+            <Field name="Holiday" size="255" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Country" size="64" source="Formula: (Multiple Sources)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="510" y="774" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Ignore</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date" source="(Multiple Sources)" type="DateTime" />
+            <Field name="Holiday" size="255" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Country" size="64" source="Formula: (Multiple Sources)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1086" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="New_Date" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Date" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Left_Startdate" selected="False" />
+                <SelectField field="Left_Enddate" selected="False" />
+                <SelectField field="Left_Country" selected="False" />
+                <SelectField field="Left_Weekday" selected="False" />
+                <SelectField field="Right_Date" selected="False" />
+                <SelectField field="Right_Holiday" selected="False" />
+                <SelectField field="Right_Country" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Only the left join is used from here as we in this way deselects all holidays, which are non-working days.</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="New_Date" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="New_Date" type="Date" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="New_Date" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="Date" source="(Multiple Sources)" type="Date" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="Date" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="306" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <StartValue>1</StartValue>
+          <FieldName>UniqueID</FieldName>
+          <FieldType>Int32</FieldType>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="678" y="774" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Date" selected="True" type="Date" size="10" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date" source="(Multiple Sources)" type="Date" />
+            <Field name="Holiday" size="255" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="1182" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="UniqueID" action="GroupBy" rename="UniqueID" />
+            <SummarizeField field="New_Date" action="Count" rename="Businessdays" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UniqueID" source="Summarize: GroupBy - UniqueID" type="Int32" />
+            <Field name="Businessdays" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1350" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="UniqueID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="UniqueID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Left_UniqueID" selected="False" />
+                <SelectField field="Right_UniqueID" selected="False" rename="Right_UniqueID" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="UniqueID" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Businessdays" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="UniqueID" source="Summarize: GroupBy - UniqueID" type="Int32" />
+            <Field name="Businessdays" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="UniqueID" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="594" y="774" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Country" type="V_WString" size="64" expression="&quot;DK&quot;" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Country="DK"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date" source="(Multiple Sources)" type="DateTime" />
+            <Field name="Holiday" size="255" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="90" y="534" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Country" action="GroupBy" rename="Country" />
+            <SummarizeField field="Holiday" action="Count" rename="Count" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Country" size="64" source="Summarize: GroupBy - Country" type="V_WString" />
+            <Field name="Count" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Country" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="198" y="534" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields />
+          <HeaderField field="Country" />
+          <DataField field="Count" />
+          <Methods>
+            <Method method="Sum" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="DK" source="CrossTab:Header:Country:DK:Sum:" type="Int64" />
+            <Field name="NO" source="CrossTab:Header:Country:NO:Sum:" type="Int64" />
+            <Field name="SE" source="CrossTab:Header:Country:SE:Sum:" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.DropDown">
+        <Position x="510" y="126" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.DropDown">
+        <Position x="594" y="126" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="522" y="222" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="606" y="222" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.DropDown">
+        <Position x="438" y="546" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="270" y="642" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="606" y="654" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="786" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">.\AssistingMacros\Business_All holidays.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Business_All holidays.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date" source="(Multiple Sources)" type="DateTime" />
+            <Field name="Holiday" size="255" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Country" size="64" source="Formula: (Multiple Sources)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="486" width="876" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Reads all holidays (fixed and moving) from country of interest</Text>
+          <Font name="Segoe UI" size="9.75" style="1" />
+          <TextColor name="White" />
+          <FillColor r="64" g="128" b="128" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="54" width="876" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Excluding all weekend-days between chosen start date and end date</Text>
+          <Font name="Segoe UI" size="9.75" style="1" />
+          <TextColor name="White" />
+          <FillColor r="64" g="128" b="128" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1026" y="54" width="516" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Only continues with unmatched dates</Text>
+          <Font name="Segoe UI" size="9.75" style="1" />
+          <TextColor name="White" />
+          <FillColor r="64" g="128" b="128" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="102" width="228" height="132" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>INFO
+
+The macro covers public holidays by country, in the following periods:
+
+DK: 2000-2099
+NO: 2009-2023
+SE: 2009-2026</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="White" />
+          <FillColor r="64" g="128" b="128" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="426" y="222" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="426" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Country" type="V_WString" size="64" expression="&quot;DK&quot;" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Country="DK"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="78" y="1014" width="720" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Test: Warning if dates are outside range for the specific country</Text>
+          <Font name="Segoe UI" size="8.25" style="1" />
+          <TextColor name="White" />
+          <FillColor name="Gray" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="78" y="1182" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Country] = "DK" AND [Startdate] &lt; '2000-04-16'</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Country] = "DK" AND [Startdate] &lt; '2000-04-16'</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="366" y="1170" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Country] = "NO" AND [Startdate] &lt; '2009-04-05'</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Country] = "NO" AND [Startdate] &lt; '2009-04-05'</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="618" y="1170" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Country] = "SE" AND [Startdate] &lt; '2009-01-06'</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Country] = "SE" AND [Startdate] &lt; '2009-01-06'</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="56">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+        <Position x="210" y="1170" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <When>First</When>
+          <Filter />
+          <Type>Warning</Type>
+          <Priority>High</Priority>
+          <Transient>False</Transient>
+          <MessageExpression>'ATTENTION: Dates are outside range for Denmark'</MessageExpression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+    </Node>
+    <Node ToolID="57">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+        <Position x="486" y="1158" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <When>First</When>
+          <Filter />
+          <Type>Warning</Type>
+          <Priority>High</Priority>
+          <Transient>False</Transient>
+          <MessageExpression>'ATTENTION: Dates are outside range for Norway'</MessageExpression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+        <Position x="738" y="1158" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <When>First</When>
+          <Filter />
+          <Type>Warning</Type>
+          <Priority>High</Priority>
+          <Transient>False</Transient>
+          <MessageExpression>'ATTENTION: Dates are outside range for Sweden'</MessageExpression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Label.Label">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="90" y="1074" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="61">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="366" y="1074" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="62">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="630" y="1074" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="64">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="354" y="1434" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Country] = "NO" AND [Enddate] &gt; '2025-01-01'</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Country] = "NO" AND [Enddate] &gt; '2025-01-01'</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="65">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="606" y="1434" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Country] = "SE" AND [Enddate] &gt; '2027-01-01'</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Country] = "SE" AND [Enddate] &gt; '2027-01-01'</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="67">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+        <Position x="474" y="1422" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <When>First</When>
+          <Filter />
+          <Type>Warning</Type>
+          <Priority>High</Priority>
+          <Transient>False</Transient>
+          <MessageExpression>'ATTENTION: Dates are outside range for Norway'</MessageExpression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+        <Position x="726" y="1422" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <When>First</When>
+          <Filter />
+          <Type>Warning</Type>
+          <Priority>High</Priority>
+          <Transient>False</Transient>
+          <MessageExpression>'ATTENTION: Dates are outside range for Sweden'</MessageExpression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="UniqueID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Startdate" source="TextInput:" type="Date" />
+            <Field name="Enddate" source="TextInput:" type="Date" />
+            <Field name="Country" size="64" source="Formula: &quot;DK&quot;" type="V_WString" />
+            <Field name="New_Date" type="Date" />
+            <Field name="Weekday" size="64" source="Formula: DateTimeFormat([New_Date],'%A')" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="UniqueID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+    </Node>
+    <Node ToolID="70">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="366" y="1338" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="71">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="618" y="1338" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="60" Connection="Action" />
+      <Destination ToolID="52" Connection="Action" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="61" Connection="Action" />
+      <Destination ToolID="54" Connection="Action" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="62" Connection="Action" />
+      <Destination ToolID="55" Connection="Action" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="70" Connection="Action" />
+      <Destination ToolID="64" Connection="Action" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="65" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="71" Connection="Action" />
+      <Destination ToolID="65" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="15" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="15" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="5" Connection="Question" />
+      <Destination ToolID="34" Connection="Question Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="5" Connection="Question" />
+      <Destination ToolID="35" Connection="Question Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="13" Connection="True" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="40" Connection="Action" />
+      <Destination ToolID="27" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Left" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="23" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="23" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="50" Connection="Input" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="49" Connection="Action" />
+      <Destination ToolID="50" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Join" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="38" Connection="Question Input" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="34" Connection="Question" />
+      <Destination ToolID="36" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="34" Connection="Question" />
+      <Destination ToolID="60" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="34" Connection="Question" />
+      <Destination ToolID="61" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="34" Connection="Question" />
+      <Destination ToolID="62" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="35" Connection="Question" />
+      <Destination ToolID="37" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="35" Connection="Question" />
+      <Destination ToolID="71" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="35" Connection="Question" />
+      <Destination ToolID="70" Connection="Question" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="36" Connection="Action" />
+      <Destination ToolID="2" Connection="Action" />
+    </Connection>
+    <Connection name="#3" Wireless="True">
+      <Origin ToolID="37" Connection="Action" />
+      <Destination ToolID="2" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="38" Connection="Question" />
+      <Destination ToolID="39" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="38" Connection="Question" />
+      <Destination ToolID="40" Connection="Question" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="38" Connection="Question" />
+      <Destination ToolID="49" Connection="Question" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="39" Connection="Action" />
+      <Destination ToolID="13" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="True" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="True" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="True" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="True" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="65" Connection="True" />
+      <Destination ToolID="68" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Drop Down (34)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Drop Down (35)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Drop Down (38)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Business Days Macro</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="36" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>Startdate</ReplaceText>
+              <Destination>2/Expression_Init</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="37" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>Enddate</ReplaceText>
+              <Destination>2/Expression_Cond</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="39" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>DK</ReplaceText>
+              <Destination>13/Simple/Operands/Operand</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="40" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>DK</ReplaceText>
+              <Destination>27/FormulaFields/FormulaField/@expression</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="49" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>DK</ReplaceText>
+              <Destination>50/FormulaFields/FormulaField/@expression</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="60" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>Startdate</ReplaceText>
+              <Destination>52/Expression</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="61" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>Startdate</ReplaceText>
+              <Destination>54/Expression</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="62" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>Startdate</ReplaceText>
+              <Destination>55/Expression</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="70" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>Enddate</ReplaceText>
+              <Destination>64/Expression</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="71" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>Enddate</ReplaceText>
+              <Destination>65/Expression</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (59)</Description>
+              <Name>Macro Input (5)</Name>
+              <ToolId value="5" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (64)</Description>
+              <Name>Macro Output (9)</Name>
+              <ToolId value="9" />
+            </Question>
+            <Question>
+              <Type>ListBox</Type>
+              <Description>Startdate</Description>
+              <Name>Drop Down (34)</Name>
+              <ToolId value="34" />
+              <Multiple value="False" />
+              <Default />
+              <Mode>MacroField</Mode>
+              <MacroField_InputTool value="0" />
+              <Field_IncludeNone value="False" />
+              <MacroField_FilterTypes>Bool,Byte,Int16,Int32,Int64,FixedDecimal,Float,Double,String,WString,V_String,V_WString,Date,Time,DateTime,Blob,SpatialObj</MacroField_FilterTypes>
+            </Question>
+            <Question>
+              <Type>ListBox</Type>
+              <Description>Enddate</Description>
+              <Name>Drop Down (35)</Name>
+              <ToolId value="35" />
+              <Multiple value="False" />
+              <Default />
+              <Mode>MacroField</Mode>
+              <MacroField_InputTool value="0" />
+              <Field_IncludeNone value="False" />
+              <MacroField_FilterTypes>Bool,Byte,Int16,Int32,Int64,FixedDecimal,Float,Double,String,WString,V_String,V_WString,Date,Time,DateTime,Blob,SpatialObj</MacroField_FilterTypes>
+            </Question>
+            <Question>
+              <Type>ListBox</Type>
+              <Description>Choose country</Description>
+              <Name>Drop Down (38)</Name>
+              <ToolId value="38" />
+              <Multiple value="False" />
+              <Default />
+              <Mode>Field</Mode>
+              <Field_ToolId value="33" />
+              <Field_ConnectionName />
+              <Field_Connection>Output</Field_Connection>
+              <Field_IsOutput value="True" />
+              <Field_IncludeNone value="False" />
+              <Field_FilterTypes>Bool,Byte,Int16,Int32,Int64,FixedDecimal,Float,Double,String,WString,V_String,V_WString,Date,Time,DateTime,Blob,SpatialObj</Field_FilterTypes>
+            </Question>
+            <Question>
+              <Type>Label</Type>
+              <Description>Attention: Be aware that the macro only covers public holidays by country in a limited period: Denmark (2000-2099), Norway (2009-2023) and Sweden (2009-2026).</Description>
+              <Name>Label (59)</Name>
+              <ToolId value="59" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="5" Selected="True" />
+        <Tool ToolId="9" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

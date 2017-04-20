@@ -1,0 +1,1 @@
+start "C:\Program Files\Internet Explorer\iexplore.exe" "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=ad9c122256121b8a1b15254fd08aea53c8dd0531&redirect_uri=urn:ietf:wg:oauth:2.0:oob&scope=https://www.googleapis.com/auth/youtube.readonly&access_type=offline"

@@ -1,0 +1,1000 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="702" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="uploadUrl" />
+          </Fields>
+          <Data>
+            <r>
+              <c>https://www.googleapis.com/upload/gmail/v1/users/me/ACTION?uploadType=multipart</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="uploadUrl" size="79" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="1554" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>uploadUrl</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues>
+              <Item name="Content-Type" value="message/rfc822" />
+            </NameValues>
+            <Fields orderChanged="False">
+              <Field name="Authorization" />
+              <Field name="client_id" selected="False" />
+              <Field name="client_secret" selected="False" />
+              <Field name="access_token" selected="False" />
+              <Field name="expires_in" selected="False" />
+              <Field name="token_type" selected="False" />
+              <Field name="uploadUrl" selected="False" />
+              <Field name="From" selected="False" />
+              <Field name="To" selected="False" />
+              <Field name="Subject" selected="False" />
+              <Field name="Message" selected="False" />
+              <Field name="Filepath" selected="False" />
+              <Field name="Source_Source_from" selected="False" />
+              <Field name="Source_Source_to" selected="False" />
+              <Field name="Source_Source_subject" selected="False" />
+              <Field name="Source_Source_Message" selected="False" />
+              <Field name="Source_Source_filepath" selected="False" />
+              <Field name="Blob" selected="False" />
+              <Field name="Filename" selected="False" />
+              <Field name="msg" selected="False" />
+              <Field name="fullMsg" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>POST</HTTPAction>
+            <QueryStringBodyMode>Field</QueryStringBodyMode>
+            <Field>fullMsg</Field>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="client_id" source="TextInput:" type="Bool" />
+            <Field name="client_secret" source="TextInput:" type="Bool" />
+            <Field name="access_token" source="TextInput:" type="Bool" />
+            <Field name="expires_in" source="TextInput:" type="Bool" />
+            <Field name="token_type" source="TextInput:" type="Bool" />
+            <Field name="Authorization" source="TextInput:" type="Bool" />
+            <Field name="uploadUrl" size="79" source="TextInput:" type="String" />
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Source_Source_from" size="10" source="TextInput:" type="String" />
+            <Field name="Source_Source_to" size="8" source="TextInput:" type="String" />
+            <Field name="Source_Source_subject" size="13" source="TextInput:" type="String" />
+            <Field name="Source_Source_Message" size="13" source="TextInput:" type="String" />
+            <Field name="Source_Source_filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Blob" size="2147483647" source="BlobConvert: Base64" type="V_String" />
+            <Field name="Filename" size="1000" source="Formula: ReverseString([Filename1])" type="V_WString" />
+            <Field name="msg" size="1073741823" source="Formula: 'Content-Type: multipart/mixed; boundary=&quot;foo_bar_baz&quot;' + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'to: ' + [To] + &quot;&#xA;&quot; + 'from: ' + [From] + &quot;&#xA;&quot; + 'subject:' + [Subject] + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + '--foo_bar_baz'  + &quot;&#xA;&quot; + 'Content-Type: text/html; charset=&quot;UTF-8&quot;'  + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'Content-Transfer-Encoding: 7bit'  + &quot;&#xA;&quot; + '' + &quot;&#xA;&quot; + [Message] + &quot;&#xA;&quot; + ''" type="V_WString" />
+            <Field name="fullMsg" size="1073741823" source="Formula: IF [Blob] != NULL() THEN &#xA;([msg]   + &quot;&#xA;&quot; + '--foo_bar_baz' + &quot;&#xA;&quot; + 'Content-Type: application/octet-stream'  + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'Content-Transfer-Encoding: base64'  + &quot;&#xA;&quot; + 'Content-Disposition: attachment; filename=&quot;' + [Filename] + '&quot;' + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + [Blob]  + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + '--foo_bar_baz--')&#xA;ELSE [msg]&#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="1170" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="client_id" source="TextInput:" type="Bool" />
+            <Field name="client_secret" source="TextInput:" type="Bool" />
+            <Field name="access_token" source="TextInput:" type="Bool" />
+            <Field name="expires_in" source="TextInput:" type="Bool" />
+            <Field name="token_type" source="TextInput:" type="Bool" />
+            <Field name="Authorization" source="TextInput:" type="Bool" />
+            <Field name="uploadUrl" size="79" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="1338" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Source_Source_from" selected="True" rename="Source_Source_from" />
+                <SelectField field="Source_Source_to" selected="True" rename="Source_Source_to" />
+                <SelectField field="Source_Source_subject" selected="True" rename="Source_Source_subject" />
+                <SelectField field="Source_Source_Message" selected="True" rename="Source_Source_Message" />
+                <SelectField field="Source_Source_filepath" selected="True" rename="Source_Source_filepath" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="client_id" source="TextInput:" type="Bool" />
+            <Field name="client_secret" source="TextInput:" type="Bool" />
+            <Field name="access_token" source="TextInput:" type="Bool" />
+            <Field name="expires_in" source="TextInput:" type="Bool" />
+            <Field name="token_type" source="TextInput:" type="Bool" />
+            <Field name="Authorization" source="TextInput:" type="Bool" />
+            <Field name="uploadUrl" size="79" source="TextInput:" type="String" />
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Source_Source_from" size="10" source="TextInput:" type="String" />
+            <Field name="Source_Source_to" size="8" source="TextInput:" type="String" />
+            <Field name="Source_Source_subject" size="13" source="TextInput:" type="String" />
+            <Field name="Source_Source_Message" size="13" source="TextInput:" type="String" />
+            <Field name="Source_Source_filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Blob" size="2147483647" source="BlobConvert: Base64" type="V_String" />
+            <Field name="Filename" size="1000" source="Formula: ReverseString([Filename1])" type="V_WString" />
+            <Field name="msg" size="1073741823" source="Formula: 'Content-Type: multipart/mixed; boundary=&quot;foo_bar_baz&quot;' + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'to: ' + [To] + &quot;&#xA;&quot; + 'from: ' + [From] + &quot;&#xA;&quot; + 'subject:' + [Subject] + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + '--foo_bar_baz'  + &quot;&#xA;&quot; + 'Content-Type: text/html; charset=&quot;UTF-8&quot;'  + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'Content-Transfer-Encoding: 7bit'  + &quot;&#xA;&quot; + '' + &quot;&#xA;&quot; + [Message] + &quot;&#xA;&quot; + ''" type="V_WString" />
+            <Field name="fullMsg" size="1073741823" source="Formula: IF [Blob] != NULL() THEN &#xA;([msg]   + &quot;&#xA;&quot; + '--foo_bar_baz' + &quot;&#xA;&quot; + 'Content-Type: application/octet-stream'  + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'Content-Transfer-Encoding: base64'  + &quot;&#xA;&quot; + 'Content-Disposition: attachment; filename=&quot;' + [Filename] + '&quot;' + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + [Blob]  + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + '--foo_bar_baz--')&#xA;ELSE [msg]&#xA;ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BlobInput.BlobInput">
+        <Position x="186" y="582" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FileName />
+          <ModifyMethod>Path</ModifyMethod>
+          <ModifyFilename_Field>Filepath</ModifyFilename_Field>
+          <ModifyFilename_StopOnError value="False" />
+          <SplitBlobs value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Blob" size="2147483647" source="BlobInput: " type="Blob" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlobInput" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BlobConvert.BlobConvert">
+        <Position x="294" y="582" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ToBlob value="False" />
+          <from_Field>Blob</from_Field>
+          <from_Mode>Base64</from_Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Blob" size="2147483647" source="BlobConvert: Base64" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlobConvert" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="474" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Source_from" selected="True" rename="Source_from" />
+                <SelectField field="Source_to" selected="True" rename="Source_to" />
+                <SelectField field="Source_subject" selected="True" rename="Source_subject" />
+                <SelectField field="Source_Message" selected="True" rename="Source_Message" />
+                <SelectField field="Source_filepath" selected="True" rename="Source_filepath" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Source_from" size="10" source="TextInput:" type="String" />
+            <Field name="Source_to" size="8" source="TextInput:" type="String" />
+            <Field name="Source_subject" size="13" source="TextInput:" type="String" />
+            <Field name="Source_Message" size="13" source="TextInput:" type="String" />
+            <Field name="Source_filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Blob" size="2147483647" source="BlobConvert: Base64" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="690" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Oauth</Name>
+          <Abbrev>A</Abbrev>
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="client_id" />
+                <Field name="client_secret" />
+                <Field name="access_token" />
+                <Field name="expires_in" />
+                <Field name="token_type" />
+                <Field name="Authorization" />
+              </Fields>
+              <Data>
+                <r>
+                  <c />
+                  <c />
+                  <c />
+                  <c />
+                  <c />
+                  <c />
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Text Input (19)</Name>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="client_id" source="TextInput:" type="Bool" />
+            <Field name="client_secret" source="TextInput:" type="Bool" />
+            <Field name="access_token" source="TextInput:" type="Bool" />
+            <Field name="expires_in" source="TextInput:" type="Bool" />
+            <Field name="token_type" source="TextInput:" type="Bool" />
+            <Field name="Authorization" source="TextInput:" type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.RadioButtonGroup.RadioButtonGroup">
+        <Position x="306" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.RadioButtonGroup.RadioButtonGroup">
+        <Position x="474" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="702" y="234" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Label.Label">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.LabelGroup.LabelGroup">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Email</Name>
+          <Abbrev>E</Abbrev>
+          <ShowFieldMap value="True" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="From" />
+                <Field name="To" />
+                <Field name="Subject" />
+                <Field name="Message" />
+                <Field name="Filepath" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>From_field</c>
+                  <c>To_field</c>
+                  <c>Subject_field</c>
+                  <c>Message_field</c>
+                  <c>Filepath_field</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Text Input (32)</Name>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="582" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Filename" type="V_WString" size="1000" expression="ReverseString([Filepath])" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Filename=ReverseString([Filepath])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Source_from" size="10" source="TextInput:" type="String" />
+            <Field name="Source_to" size="8" source="TextInput:" type="String" />
+            <Field name="Source_subject" size="13" source="TextInput:" type="String" />
+            <Field name="Source_Message" size="13" source="TextInput:" type="String" />
+            <Field name="Source_filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Blob" size="2147483647" source="BlobConvert: Base64" type="V_String" />
+            <Field name="Filename" size="1000" source="Formula: ReverseString([Filepath])" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="690" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Filename</Field>
+          <NumFields value="2" />
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>Filename</RootName>
+          <Delimeters value="\" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Source_from" size="10" source="TextInput:" type="String" />
+            <Field name="Source_to" size="8" source="TextInput:" type="String" />
+            <Field name="Source_subject" size="13" source="TextInput:" type="String" />
+            <Field name="Source_Message" size="13" source="TextInput:" type="String" />
+            <Field name="Source_filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Blob" size="2147483647" source="BlobConvert: Base64" type="V_String" />
+            <Field name="Filename" size="1000" source="Formula: ReverseString([Filepath])" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Filename" name="Filename1" size="1000" source="TextToColumns: Parsed from Filename" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Filename" name="Filename2" size="1000" source="TextToColumns: Parsed from Filename" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="798" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Filename" type="V_WString" size="1000" expression="ReverseString([Filename1])" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Filename=ReverseString([Filename1])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Source_from" size="10" source="TextInput:" type="String" />
+            <Field name="Source_to" size="8" source="TextInput:" type="String" />
+            <Field name="Source_subject" size="13" source="TextInput:" type="String" />
+            <Field name="Source_Message" size="13" source="TextInput:" type="String" />
+            <Field name="Source_filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Blob" size="2147483647" source="BlobConvert: Base64" type="V_String" />
+            <Field name="Filename" size="1000" source="Formula: ReverseString([Filename1])" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Filename" name="Filename1" size="1000" source="TextToColumns: Parsed from Filename" type="V_WString" />
+            <Field description="TextToColumns: Parsed from Filename" name="Filename2" size="1000" source="TextToColumns: Parsed from Filename" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="918" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Filename1" selected="False" />
+            <SelectField field="Filename2" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Source_from" size="10" source="TextInput:" type="String" />
+            <Field name="Source_to" size="8" source="TextInput:" type="String" />
+            <Field name="Source_subject" size="13" source="TextInput:" type="String" />
+            <Field name="Source_Message" size="13" source="TextInput:" type="String" />
+            <Field name="Source_filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Blob" size="2147483647" source="BlobConvert: Base64" type="V_String" />
+            <Field name="Filename" size="1000" source="Formula: ReverseString([Filename1])" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1038" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="msg" type="V_WString" size="1000000000" expression="'Content-Type: multipart/mixed; boundary=&quot;foo_bar_baz&quot;' + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'to: ' + [To] + &quot;&#xA;&quot; + 'from: ' + [From] + &quot;&#xA;&quot; + 'subject:' + [Subject] + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + '--foo_bar_baz'  + &quot;&#xA;&quot; + 'Content-Type: text/html; charset=&quot;UTF-8&quot;'  + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'Content-Transfer-Encoding: 7bit'  + &quot;&#xA;&quot; + '' + &quot;&#xA;&quot; + [Message] + &quot;&#xA;&quot; + ''" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>msg='Content-Type: multipart/mixed; boundary="foo_bar_baz"' +...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Source_from" size="10" source="TextInput:" type="String" />
+            <Field name="Source_to" size="8" source="TextInput:" type="String" />
+            <Field name="Source_subject" size="13" source="TextInput:" type="String" />
+            <Field name="Source_Message" size="13" source="TextInput:" type="String" />
+            <Field name="Source_filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Blob" size="2147483647" source="BlobConvert: Base64" type="V_String" />
+            <Field name="Filename" size="1000" source="Formula: ReverseString([Filename1])" type="V_WString" />
+            <Field name="msg" size="1073741823" source="Formula: 'Content-Type: multipart/mixed; boundary=&quot;foo_bar_baz&quot;' + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'to: ' + [To] + &quot;&#xA;&quot; + 'from: ' + [From] + &quot;&#xA;&quot; + 'subject:' + [Subject] + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + '--foo_bar_baz'  + &quot;&#xA;&quot; + 'Content-Type: text/html; charset=&quot;UTF-8&quot;'  + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'Content-Transfer-Encoding: 7bit'  + &quot;&#xA;&quot; + '' + &quot;&#xA;&quot; + [Message] + &quot;&#xA;&quot; + ''" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1170" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="fullMsg" type="V_WString" size="1073741823" expression="IF [Blob] != NULL() THEN &#xA;([msg]   + &quot;&#xA;&quot; + '--foo_bar_baz' + &quot;&#xA;&quot; + 'Content-Type: application/octet-stream'  + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'Content-Transfer-Encoding: base64'  + &quot;&#xA;&quot; + 'Content-Disposition: attachment; filename=&quot;' + [Filename] + '&quot;' + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + [Blob]  + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + '--foo_bar_baz--')&#xA;ELSE [msg]&#xA;ENDIF" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>fullMsg=IF [Blob] != NULL() THEN 
+([msg]   + "
+" + '--foo_bar...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="From" size="10" source="TextInput:" type="String" />
+            <Field name="To" size="8" source="TextInput:" type="String" />
+            <Field name="Subject" size="13" source="TextInput:" type="String" />
+            <Field name="Message" size="13" source="TextInput:" type="String" />
+            <Field name="Filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Source_from" size="10" source="TextInput:" type="String" />
+            <Field name="Source_to" size="8" source="TextInput:" type="String" />
+            <Field name="Source_subject" size="13" source="TextInput:" type="String" />
+            <Field name="Source_Message" size="13" source="TextInput:" type="String" />
+            <Field name="Source_filepath" size="14" source="TextInput:" type="String" />
+            <Field name="Blob" size="2147483647" source="BlobConvert: Base64" type="V_String" />
+            <Field name="Filename" size="1000" source="Formula: ReverseString([Filename1])" type="V_WString" />
+            <Field name="msg" size="1073741823" source="Formula: 'Content-Type: multipart/mixed; boundary=&quot;foo_bar_baz&quot;' + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'to: ' + [To] + &quot;&#xA;&quot; + 'from: ' + [From] + &quot;&#xA;&quot; + 'subject:' + [Subject] + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + '--foo_bar_baz'  + &quot;&#xA;&quot; + 'Content-Type: text/html; charset=&quot;UTF-8&quot;'  + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'Content-Transfer-Encoding: 7bit'  + &quot;&#xA;&quot; + '' + &quot;&#xA;&quot; + [Message] + &quot;&#xA;&quot; + ''" type="V_WString" />
+            <Field name="fullMsg" size="1073741823" source="Formula: IF [Blob] != NULL() THEN &#xA;([msg]   + &quot;&#xA;&quot; + '--foo_bar_baz' + &quot;&#xA;&quot; + 'Content-Type: application/octet-stream'  + &quot;&#xA;&quot; + 'MIME-Version: 1.0'  + &quot;&#xA;&quot; + 'Content-Transfer-Encoding: base64'  + &quot;&#xA;&quot; + 'Content-Disposition: attachment; filename=&quot;' + [Filename] + '&quot;' + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + [Blob]  + &quot;&#xA;&quot; + ''  + &quot;&#xA;&quot; + '--foo_bar_baz--')&#xA;ELSE [msg]&#xA;ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1686" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="DownloadData" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1830" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Gmail API Response</Name>
+          <Abbrev>G</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="9" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="9" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="10" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="18" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="24" Connection="Question" />
+      <Destination ToolID="27" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="26" Connection="Question" />
+      <Destination ToolID="27" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="27" Connection="Action" />
+      <Destination ToolID="3" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="37" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (21)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Radio Button (24)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Radio Button (26)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (33)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (47)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>gmail_draft</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValueFormula</Type>
+              <Description />
+              <ToolId value="27" />
+              <Expression>IF [#1] THEN
+REPLACE([Destination], "ACTION", "messages/send")
+ELSEIF [#2] THEN
+REPLACE([Destination], "ACTION", "drafts")
+ELSE
+REPLACE([Destination], "ACTION", "drafts")
+ENDIF</Expression>
+              <Destination>3/Data/r/c</Destination>
+              <Mode>Expression</Mode>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (20)</Name>
+          <ToolId value="20" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (21)</Description>
+              <Name>Macro Input (21)</Name>
+              <ToolId value="21" />
+            </Question>
+            <Question>
+              <Type>Label</Type>
+              <Description><![CDATA[This tool allows you to send or draft an email. If you set a correct file path in the "Filepath" field, the email will also have an attachment. ]]></Description>
+              <Name>Label (28)</Name>
+              <ToolId value="28" />
+            </Question>
+            <Question>
+              <Type>LabelGroup</Type>
+              <Description>Action</Description>
+              <Name>LabelGroup (29)</Name>
+              <ToolId value="29" />
+              <Questions>
+                <Question>
+                  <Type>RadioGroup</Type>
+                  <Description>Create draft</Description>
+                  <Name>Radio Button (26)</Name>
+                  <ToolId value="26" />
+                  <Questions />
+                  <Default value="True" />
+                  <Collapsable value="False" />
+                </Question>
+                <Question>
+                  <Type>RadioGroup</Type>
+                  <Description>Send message</Description>
+                  <Name>Radio Button (24)</Name>
+                  <ToolId value="24" />
+                  <Questions />
+                  <Default value="False" />
+                  <Collapsable value="False" />
+                </Question>
+              </Questions>
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (33)</Description>
+              <Name>Macro Input (33)</Name>
+              <ToolId value="33" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (47)</Description>
+              <Name>Macro Output (47)</Name>
+              <ToolId value="47" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="21" Selected="True" />
+        <Tool ToolId="33" Selected="True" />
+        <Tool ToolId="47" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
