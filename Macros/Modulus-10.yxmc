@@ -1,0 +1,1111 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="11.0">
+  <Nodes>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="258" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>BetalingsID</Field>
+          <RegExExpression value="\d" />
+          <CaseInsensitve value="True" />
+          <Method>ParseSimple</Method>
+          <Replace expression="">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>BetalingsID</RootName>
+            <NumFields value="15" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+          </ParseComplex>
+          <Match>
+            <Field>BetalingsID_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText />
+          <DefaultAnnotationText>Tokenize:
+\d</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID1" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID2" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID3" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID4" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID5" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID6" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID7" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID8" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID9" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID10" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID11" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID12" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID13" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID14" source="RegEx: Parsed from BetalingsID" type="Int64" />
+            <Field description="RegEx: Parsed from BetalingsID" name="BetalingsID15" source="RegEx: Parsed from BetalingsID" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="414" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="BetalingsID" />
+          </KeyFields>
+          <DataFields>
+            <Field field="BetalingsID" selected="False" />
+            <Field field="BetalingsID1" selected="True" />
+            <Field field="BetalingsID2" selected="True" />
+            <Field field="BetalingsID3" selected="True" />
+            <Field field="BetalingsID4" selected="True" />
+            <Field field="BetalingsID5" selected="True" />
+            <Field field="BetalingsID6" selected="True" />
+            <Field field="BetalingsID7" selected="True" />
+            <Field field="BetalingsID8" selected="True" />
+            <Field field="BetalingsID9" selected="True" />
+            <Field field="BetalingsID10" selected="True" />
+            <Field field="BetalingsID11" selected="True" />
+            <Field field="BetalingsID12" selected="True" />
+            <Field field="BetalingsID13" selected="True" />
+            <Field field="BetalingsID14" selected="True" />
+            <Field field="BetalingsID15" selected="True" />
+            <Field field="*Unknown" selected="False" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="930" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="if [BetalingsID 2]=1 then [Value]*1 &#xA;elseif [BetalingsID 2]=3 then [Value]*1 &#xA;elseif [BetalingsID 2]=5 then [Value]*1 &#xA;elseif [BetalingsID 2]=7 then [Value]*1 &#xA;elseif [BetalingsID 2]=9 then [Value]*1 &#xA;else [Value]*2 endif" field="Summer" size="4" type="Int32" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText />
+          <DefaultAnnotationText>Summer = if [BetalingsID 2]=1 then [Value]*1 
+elseif [BetalingsID 2]=3 then [Val...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" />
+            <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" />
+            <Field name="Summer" source="Formula: if [BetalingsID 2]=1 then [Value]*1 &#xA;elseif [BetalingsID 2]=3 then [Value]*1 &#xA;elseif [BetalingsID 2]=5 then [Value]*1 &#xA;elseif [BetalingsID 2]=7 then [Value]*1 &#xA;elseif [BetalingsID 2]=9 then [Value]*1 &#xA;else [Value]*2 endif" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="690" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Value" selected="True" type="Int32" size="4" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1050" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>Summer</Field>
+            <Operator>&gt;=</Operator>
+            <Operands>
+              <Operand>10</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText />
+          <DefaultAnnotationText>[Summer] &gt;= 10</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" />
+            <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" />
+            <Field name="Summer" source="Formula: if [BetalingsID 2]=1 then [Value]*1 &#xA;elseif [BetalingsID 2]=3 then [Value]*1 &#xA;elseif [BetalingsID 2]=5 then [Value]*1 &#xA;elseif [BetalingsID 2]=7 then [Value]*1 &#xA;elseif [BetalingsID 2]=9 then [Value]*1 &#xA;else [Value]*2 endif" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" />
+            <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" />
+            <Field name="Summer" source="Formula: if [BetalingsID 2]=1 then [Value]*1 &#xA;elseif [BetalingsID 2]=3 then [Value]*1 &#xA;elseif [BetalingsID 2]=5 then [Value]*1 &#xA;elseif [BetalingsID 2]=7 then [Value]*1 &#xA;elseif [BetalingsID 2]=9 then [Value]*1 &#xA;else [Value]*2 endif" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1458" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Left([Summer],1)" field="Venstre" size="64" type="String" />
+            <FormulaField expression="Right([Summer],1)" field="Højre" size="64" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText />
+          <DefaultAnnotationText><![CDATA[Venstre = Left([Summer],1)
+Højre = Right([Summer],1)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" />
+            <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" />
+            <Field name="Summer" size="11" source="Formula: if [BetalingsID 2]=1 then [Value]*1 &#xA;elseif [BetalingsID 2]=3 then [Value]*1 &#xA;elseif [BetalingsID 2]=5 then [Value]*1 &#xA;elseif [BetalingsID 2]=7 then [Value]*1 &#xA;elseif [BetalingsID 2]=9 then [Value]*1 &#xA;else [Value]*2 endif" type="String" />
+            <Field name="Venstre" size="64" source="Formula: Left([Summer],1)" type="String" />
+            <Field name="Højre" size="64" source="Formula: Right([Summer],1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1578" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Venstre" selected="True" type="Int16" size="2" />
+            <SelectField field="Højre" selected="True" type="Int32" size="4" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" />
+            <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" />
+            <Field name="Summer" size="11" source="Formula: if [BetalingsID 2]=1 then [Value]*1 &#xA;elseif [BetalingsID 2]=3 then [Value]*1 &#xA;elseif [BetalingsID 2]=5 then [Value]*1 &#xA;elseif [BetalingsID 2]=7 then [Value]*1 &#xA;elseif [BetalingsID 2]=9 then [Value]*1 &#xA;else [Value]*2 endif" type="String" />
+            <Field name="Venstre" source="Formula: Left([Summer],1)" type="Int16" />
+            <Field name="Højre" source="Formula: Right([Summer],1)" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1686" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[Venstre]+[Højre]" field="SummerNY" size="2" type="Int16" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText />
+          <DefaultAnnotationText><![CDATA[SummerNY = [Venstre]+[Højre]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" />
+            <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" />
+            <Field name="Summer" size="11" source="Formula: if [BetalingsID 2]=1 then [Value]*1 &#xA;elseif [BetalingsID 2]=3 then [Value]*1 &#xA;elseif [BetalingsID 2]=5 then [Value]*1 &#xA;elseif [BetalingsID 2]=7 then [Value]*1 &#xA;elseif [BetalingsID 2]=9 then [Value]*1 &#xA;else [Value]*2 endif" type="String" />
+            <Field name="Venstre" source="Formula: Left([Summer],1)" type="Int16" />
+            <Field name="Højre" source="Formula: Right([Summer],1)" type="Int32" />
+            <Field name="SummerNY" source="Formula: [Venstre]+[Højre]" type="Int16" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1794" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Summer" selected="False" />
+            <SelectField field="Venstre" selected="False" />
+            <SelectField field="Højre" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" />
+            <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" />
+            <Field name="SummerNY" source="Formula: [Venstre]+[Højre]" type="Int16" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="126" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <AutoResetMode>Custom</AutoResetMode>
+          <MultiMetaInfo>
+            <MetaInfo name="#2">
+              <RecordInfo>
+                <Field name="BetalingsID" source="TextInput:" type="Int64" column="1" />
+                <Field name="Name" size="13" source="Transpose:" type="String" column="2" />
+                <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" column="3" />
+                <Field name="Summer" source="Formula: if [BetalingsID 2]=1 then [Value]*1 &#xA;elseif [BetalingsID 2]=3 then [Value]*1 &#xA;elseif [BetalingsID 2]=5 then [Value]*1 &#xA;elseif [BetalingsID 2]=7 then [Value]*1 &#xA;elseif [BetalingsID 2]=9 then [Value]*1 &#xA;else [Value]*2 endif" type="Int32" column="4" />
+                <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" column="5" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo name="#1">
+              <RecordInfo>
+                <Field name="BetalingsID" source="TextInput:" type="Int64" column="1" />
+                <Field name="Name" size="13" source="Transpose:" type="String" column="2" />
+                <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" column="3" />
+                <Field name="SummerNY" source="Formula: [Venstre]+[Højre]" type="Int16" column="4" />
+                <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" column="5" />
+              </RecordInfo>
+            </MetaInfo>
+          </MultiMetaInfo>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ManualDelayed</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" />
+            <Field name="SummerNY" source="Formula: (Multiple Sources)" type="Int32" />
+            <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="450" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="BetalingsID" />
+          </KeyFields>
+          <DataFields>
+            <Field field="BetalingsID" selected="False" />
+            <Field field="Sum_SummerNY" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="Summarize: GroupBy - BetalingsID" type="Int64" />
+            <Field name="Name" size="12" source="Transpose:" type="String" />
+            <Field name="Value" source="Summarize: Sum - SummerNY" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="BetalingsID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="870" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[Value]/10" field="Tæller/Modulus" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText />
+          <DefaultAnnotationText><![CDATA[Tæller/Modulus = [Value]/10
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="Summarize: GroupBy - BetalingsID" type="Int64" />
+            <Field name="Name" size="12" source="Transpose:" type="String" />
+            <Field name="Value" source="Summarize: Sum - SummerNY" type="Int64" />
+            <Field name="Tæller/Modulus" source="Formula: [Value]/10" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="BetalingsID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="798" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToNumber(Right([Name],1),1)" field="BetalingsID 2" size="4" type="Int32" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText />
+          <DefaultAnnotationText><![CDATA[BetalingsID 2 = ToNumber(Right([Name],1),1)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" />
+            <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1146" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Tæller/modulus rest" type="V_WString" size="64" expression="Right([Tæller/Modulus],1)" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText />
+          <DefaultAnnotationText>Tæller/modulus rest=Right([Tæller/Modulus],1)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="Summarize: GroupBy - BetalingsID" type="Int64" />
+            <Field name="Name" size="12" source="Transpose:" type="String" />
+            <Field name="Value" source="Summarize: Sum - SummerNY" type="Int64" />
+            <Field name="Tæller/Modulus" size="19" source="Formula: [Value]/10" type="String" />
+            <Field name="Tæller/modulus rest" size="64" source="Formula: Right([Tæller/Modulus],1)" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="BetalingsID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1002" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Tæller/Modulus" selected="True" type="String" size="19" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="Summarize: GroupBy - BetalingsID" type="Int64" />
+            <Field name="Name" size="12" source="Transpose:" type="String" />
+            <Field name="Value" source="Summarize: Sum - SummerNY" type="Int64" />
+            <Field name="Tæller/Modulus" size="19" source="Formula: [Value]/10" type="String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="BetalingsID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1338" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Summer" selected="True" type="String" size="11" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Name" size="13" source="Transpose:" type="String" />
+            <Field description="RegEx: Parsed from BetalingsID" name="Value" source="RegEx: Parsed from BetalingsID" type="Int32" />
+            <Field name="BetalingsID 2" source="Formula: ToNumber(Right([Name],1),1)" type="Int32" />
+            <Field name="Summer" size="11" source="Formula: if [BetalingsID 2]=1 then [Value]*1 &#xA;elseif [BetalingsID 2]=3 then [Value]*1 &#xA;elseif [BetalingsID 2]=5 then [Value]*1 &#xA;elseif [BetalingsID 2]=7 then [Value]*1 &#xA;elseif [BetalingsID 2]=9 then [Value]*1 &#xA;else [Value]*2 endif" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1422" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="Kontrolciffer" type="Int64" size="8" expression="10-[Tæller/modulus rest]" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText />
+          <DefaultAnnotationText>Kontrolciffer=10-[Tæller/modulus rest]</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="Summarize: GroupBy - BetalingsID" type="Int64" />
+            <Field name="Name" size="12" source="Transpose:" type="String" />
+            <Field name="Value" source="Summarize: Sum - SummerNY" type="Int64" />
+            <Field name="Tæller/Modulus" size="19" source="Formula: [Value]/10" type="String" />
+            <Field name="Tæller/modulus rest" source="Formula: Right([Tæller/Modulus],1)" type="Int32" />
+            <Field name="Kontrolciffer" source="Formula: 10-[Tæller/modulus rest]" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="BetalingsID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1290" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Tæller/modulus rest" selected="True" type="Int32" size="4" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="Summarize: GroupBy - BetalingsID" type="Int64" />
+            <Field name="Name" size="12" source="Transpose:" type="String" />
+            <Field name="Value" source="Summarize: Sum - SummerNY" type="Int64" />
+            <Field name="Tæller/Modulus" size="19" source="Formula: [Value]/10" type="String" />
+            <Field name="Tæller/modulus rest" source="Formula: Right([Tæller/Modulus],1)" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="BetalingsID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="54" width="492" height="84" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Split betalingsID'et ud og transponer dem nedad. ]]></Text>
+          <Font name="Segoe UI" size="18" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="630" y="54" width="516" height="84" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Tilføj vægt og summer hvert enkelt tal op. Filtrer efter om den nye sum er større end 10. ]]></Text>
+          <Font name="Segoe UI" size="18" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1254" y="54" width="636" height="84" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Hvis summen af vægten*betalingsID er større end 10, finder vi tværsummen</Text>
+          <Font name="Segoe UI" size="18" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="294" width="564" height="84" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Join tværsummen med betalingsID - summer og transponer data igen</Text>
+          <Font name="Segoe UI" size="18" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="774" y="294" width="1128" height="84" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Beregn kontrolciffer og join dette tilbage til de oprindelige data. Output det samlede data ]]></Text>
+          <Font name="Segoe UI" size="18" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1782" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output Kontrolciffer</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="126" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Input52</Name>
+          <Abbrev />
+          <ShowFieldMap value="True" />
+          <Optional value="True" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="3" />
+              <Fields>
+                <Field name="BetalingsID" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>12345678912345</c>
+                </r>
+                <r>
+                  <c>12345543211234</c>
+                </r>
+                <r>
+                  <c>123123123123123</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="56">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="282" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="BetalingsID" action="GroupBy" rename="BetalingsID" />
+            <SummarizeField field="SummerNY" action="Sum" rename="Sum_SummerNY" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="Summarize: GroupBy - BetalingsID" type="Int64" />
+            <Field name="Sum_SummerNY" source="Summarize: Sum - SummerNY" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="BetalingsID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="57">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1530" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Name" selected="False" />
+            <SelectField field="Value" selected="False" />
+            <SelectField field="Tæller/Modulus" selected="False" />
+            <SelectField field="Tæller/modulus rest" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="BetalingsID" source="Summarize: GroupBy - BetalingsID" type="Int64" />
+            <Field name="Kontrolciffer" source="Formula: 10-[Tæller/modulus rest]" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="BetalingsID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1662" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="BetalingsID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="BetalingsID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Right_BetalingsID" selected="False" rename="Right_BetalingsID" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="BetalingsID" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="BetalingsID" source="TextInput:" type="Int64" />
+            <Field name="Kontrolciffer" source="Formula: 10-[Tæller/modulus rest]" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="BetalingsID" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="BetalingsID" source="Summarize: GroupBy - BetalingsID" type="Int64" />
+            <Field name="Kontrolciffer" source="Formula: 10-[Tæller/modulus rest]" type="Int64" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="BetalingsID" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="True" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="13" Connection="False" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection Wireless="True">
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="58" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="58" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Join" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (42)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (52)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Modulus-10</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (39)</Name>
+          <ToolId value="39" />
+          <Questions>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (42)</Description>
+              <Name>Macro Output (42)</Name>
+              <ToolId value="42" />
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (52)</Description>
+              <Name>Macro Input (52)</Name>
+              <ToolId value="52" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="42" Selected="True" />
+        <Tool ToolId="52" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
