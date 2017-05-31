@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="10.0">
+<AlteryxDocument yxmdVer="11.0">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
@@ -228,18 +228,16 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Expression><![CDATA[!IsNull([id])
+          <Expression>!IsNull([id])
 // [JSON_Name2] != "previous"
-]]></Expression>
-          <Mode>Simple</Mode>
-          <Simple>
-            <Field>id</Field>
-            <Operator>IsNotNull</Operator>
-          </Simple>
+and !isempty(id)</Expression>
+          <Mode>Custom</Mode>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>!IsNull([id])</DefaultAnnotationText>
+          <DefaultAnnotationText>!IsNull([id])
+// [JSON_Name2] != "previous"
+and !isempty(id)</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="True">
@@ -798,6 +796,10 @@
       <Company />
       <Copyright />
       <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
     </MetaInfo>
     <Events>
       <Enabled value="False" />
@@ -841,7 +843,7 @@
       <IterativeMacro>
         <Input>Input29</Input>
         <Output>Iteration link</Output>
-        <IterationLimit value="100" />
+        <IterationLimit value="1000" />
         <LimitBehavior>Error</LimitBehavior>
         <OutputMode>AllSame</OutputMode>
       </IterativeMacro>
