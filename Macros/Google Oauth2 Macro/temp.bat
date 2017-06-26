@@ -1,0 +1,1 @@
+start "C:\Program Files\Internet Explorer\iexplore.exe" "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=CLIENTID&redirect_uri=urn:ietf:wg:oauth:2.0:oob&scope=XXX&access_type=offline"

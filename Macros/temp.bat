@@ -1,1 +1,0 @@
-start "C:\Program Files\Internet Explorer\iexplore.exe" "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=944408280169-12mile2sqdt784ajmq4v3a86hucja5oi.apps.googleusercontent.com&redirect_uri=urn:ietf:wg:oauth:2.0:oob&scope=https://www.googleapis.com/auth/spreadsheets.readonly&access_type=offline"
