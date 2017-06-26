@@ -119,9 +119,6 @@
               <DefaultAnnotationText>Run cmd.exe</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRunCommand" />
         </Node>
@@ -160,9 +157,6 @@
               <DefaultAnnotationText>Run cmd.exe</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRunCommand" />
         </Node>
@@ -199,7 +193,7 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="102" y="258" width="657" height="518" />
+        <Position x="102" y="258" width="649" height="502" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -230,7 +224,7 @@
                   <c>[Settings]</c>
                 </r>
                 <r>
-                  <c>DefaultFolder=Inviso Macros New</c>
+                  <c>DefaultFolder=Inviso Macros</c>
                 </r>
                 <r>
                   <c>MinimumAlteryxVersion=9.0</c>
@@ -244,7 +238,7 @@
             </Annotation>
             <MetaInfo connection="Output">
               <RecordInfo>
-                <Field name="Settings" size="31" source="TextInput:" type="V_String" />
+                <Field name="Settings" size="27" source="TextInput:" type="V_String" />
               </RecordInfo>
             </MetaInfo>
           </Properties>
@@ -394,7 +388,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <File MaxRecords="" FileFormat="0">C:\ProgramData\Alteryx\DataProducts\AddOnData\Macros\InvisoMacrosNew.ini</File>
+              <File MaxRecords="" FileFormat="0">C:\ProgramData\Alteryx\DataProducts\AddOnData\Macros\InvisoMacros.ini</File>
               <Passwords />
               <FormatSpecificOptions>
                 <LineEndStyle>CRLF</LineEndStyle>
@@ -408,7 +402,7 @@
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
-              <DefaultAnnotationText>InvisoMacrosNew.ini</DefaultAnnotationText>
+              <DefaultAnnotationText>InvisoMacros.ini</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
             <Dependencies>
@@ -423,7 +417,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <File MaxRecords="" FileFormat="0">C:\ProgramData\Alteryx\DataProducts\AddOnData\Samples\InvisoMacrosNew.ini</File>
+              <File MaxRecords="" FileFormat="0">C:\ProgramData\Alteryx\DataProducts\AddOnData\Samples\InvisoMacros.ini</File>
               <Passwords />
               <FormatSpecificOptions>
                 <LineEndStyle>CRLF</LineEndStyle>
@@ -437,7 +431,7 @@
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
-              <DefaultAnnotationText>InvisoMacrosNew.ini</DefaultAnnotationText>
+              <DefaultAnnotationText>InvisoMacros.ini</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
             <Dependencies>
