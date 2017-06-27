@@ -18,7 +18,7 @@
             </Configuration>
           </InputConfiguration>
           <ProgramName>cmd</ProgramName>
-          <Arguments>/c ping 127.0.0.1 -n 1234</Arguments>
+          <Arguments>/c ping 127.0.0.1 -n 1234 &gt; nul</Arguments>
           <WorkingDir />
           <RunMinimized value="True" />
           <RunSilent value="True" />
@@ -74,6 +74,7 @@
           <Name>Input</Name>
           <Abbrev>I</Abbrev>
           <ShowFieldMap value="True" />
+          <Optional value="False" />
           <TextInput>
             <Configuration>
               <NumRows value="4" />
@@ -243,7 +244,7 @@
               <Type>UpdateValueFormula</Type>
               <Description />
               <ToolId value="6" />
-              <Expression>REPLACE([Destination], "1234", toString([#1]))</Expression>
+              <Expression>REPLACE([Destination], "1234", toString(toNumber([#1]) + 1 ))</Expression>
               <Destination>1/Arguments</Destination>
               <Mode>Expression</Mode>
             </Action>
