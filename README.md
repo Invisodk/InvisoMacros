@@ -15,3 +15,7 @@
 - Push to Github! 
 
 If you follow these rules, magic will happen and your Macro will be automatically included in the [Inviso Macro Pack](http://inviso.dk/macros) and in our Alteryx installations on the remotes. 
+
+
+## Best practices
+(WIP)
