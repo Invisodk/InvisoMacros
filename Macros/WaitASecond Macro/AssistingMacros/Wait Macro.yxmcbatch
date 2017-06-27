@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="10.0">
+<AlteryxDocument yxmdVer="11.0">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
@@ -18,7 +18,7 @@
             </Configuration>
           </InputConfiguration>
           <ProgramName>cmd</ProgramName>
-          <Arguments>/c ping 199.199.199.199 -n 1 -w 1234 &amp; echo "OK"</Arguments>
+          <Arguments>/c ping 127.0.0.1 -n 1234</Arguments>
           <WorkingDir />
           <RunMinimized value="True" />
           <RunSilent value="True" />
@@ -33,11 +33,19 @@
         </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="RecordIDWait" source="RecordID: Starting Value=1" type="Int32" />
-            <Field name="URL" size="200" source="TextInput: (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
-            <Field name="URL2" size="44" source="TextInput: (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="String" />
-            <Field name="Difference" size="7" source="TextInput: (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="String" />
-            <Field name="PageNumber" size="2000" source="Formula: REGEX_Replace([Difference], &quot;\d+&quot;, ToString([Engine.IterationNumber]+1))" type="V_WString" />
+            <Field name="year" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="Int64" />
+            <Field name="month" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="Int64" />
+            <Field name="day" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="Int64" />
+            <Field name="carrier" size="254" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="V_String" />
+            <Field name="origin" size="254" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="V_String" />
+            <Field name="dest" size="254" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="V_String" />
+            <Field name="aircraft_code" size="254" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="V_String" />
+            <Field name="miles" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="Int64" />
+            <Field name="departures" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="Int64" />
+            <Field name="minutes" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="Int64" />
+            <Field name="seats" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="Int64" />
+            <Field name="passengers" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="Int64" />
+            <Field name="freight_pounds" source="File: Z:\Brugere\DB\Flightdata\data\flights-usa-*.csv" type="Int64" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -217,6 +225,10 @@
       <Company />
       <Copyright />
       <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
     </MetaInfo>
     <Events>
       <Enabled value="False" />
@@ -231,7 +243,7 @@
               <Type>UpdateValueFormula</Type>
               <Description />
               <ToolId value="6" />
-              <Expression>REPLACE([Destination], "1234", toString(toNumber([#1])*1000))</Expression>
+              <Expression>REPLACE([Destination], "1234", toString([#1]))</Expression>
               <Destination>1/Arguments</Destination>
               <Mode>Expression</Mode>
             </Action>
