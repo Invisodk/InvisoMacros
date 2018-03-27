@@ -16,6 +16,4 @@
 
 If you follow these rules, magic will happen and your macro will be automatically included in the [Inviso Macro Pack](http://inviso.dk/macros) and in our Alteryx installations on the remotes. 
 
-
-## Best practices
-(WIP)
+Buddy pipeline: https://app.buddy.works/inviso/invisomacros/pipelines
